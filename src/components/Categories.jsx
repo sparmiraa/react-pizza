@@ -19,7 +19,7 @@ export default function Categories() {
   };
 
   return (
-    <div className="CATEGORIES">
+    <div className="categories">
       <ul>
         {CATEGORIES.map((value, index) => (
           <li
