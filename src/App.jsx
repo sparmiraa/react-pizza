@@ -22,7 +22,7 @@ export default function App() {
 
           <div className="content__items">
             {pizzas.map((obj) => (
-              <PizzaBlock {...obj} />
+              <PizzaBlock {...obj} key={obj.id} />
             ))}
           </div>
         </div>

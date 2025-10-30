@@ -23,6 +23,7 @@ export default function Categories() {
           <li
             onClick={() => onClickCategory(index)}
             className={activeIndex === index ? "active" : ""}
+            key={index}
           >
             {value}
           </li>
