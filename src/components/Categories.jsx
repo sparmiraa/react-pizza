@@ -10,12 +10,10 @@ const CATEGORIES = [
 ];
 
 export default function Categories() {
-  const [activeIndex, setactiveIndex] = React.useState(0);
-
- 
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   const onClickCategory = (index) => {
-    setactiveIndex(index);
+    setActiveIndex(index);
   };
 
   return (

@@ -1,5 +1,7 @@
 import React from "react";
 
+import plusImg from "../assets/img/plus.svg";
+
 const TYPE_NAMES = ["тонкое", "традиационное"];
 
 export default function PizzaBlock({imageUrl, title, price, sizes, types}) {
@@ -37,7 +39,7 @@ export default function PizzaBlock({imageUrl, title, price, sizes, types}) {
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
         <button className="button button--outline button--add">
-          <img src="/img/plus.svg" alt="" style={{ marginRight: "0.5rem" }} />
+          <img src={plusImg} alt="" style={{ marginRight: "0.5rem" }} />
           <span>Добавить</span>
           <i>0</i>
         </button>
