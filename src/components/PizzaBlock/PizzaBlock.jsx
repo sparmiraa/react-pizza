@@ -1,6 +1,6 @@
 import React from "react";
 
-import plusImg from "../assets/img/plus.svg";
+import plusImg from "../../assets/img/plus.svg";
 
 const TYPE_NAMES = ["тонкое", "традиационное"];
 
