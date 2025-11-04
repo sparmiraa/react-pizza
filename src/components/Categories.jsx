@@ -9,23 +9,17 @@ const CATEGORIES = [
   "Закрытые",
 ];
 
-export default function Categories() {
-  const [activeIndex, setActiveIndex] = React.useState(0);
-
-  const onClickCategory = (index) => {
-    setActiveIndex(index);
-  };
-
+export default function Categories({ value, onChangeCategory }) {
   return (
     <div className="categories">
       <ul>
-        {CATEGORIES.map((value, index) => (
+        {CATEGORIES.map((categoryName, index) => (
           <li
-            onClick={() => onClickCategory(index)}
-            className={activeIndex === index ? "active" : ""}
+            onClick={() => onChangeCategory(index)}
+            className={value === index ? "active" : ""}
             key={index}
           >
-            {value}
+            {categoryName}
           </li>
         ))}
       </ul>
