@@ -5,6 +5,8 @@ import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 
+EMPTY_SKELETONS = [...new Array(8)];
+
 export default function Home() {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -24,9 +26,7 @@ export default function Home() {
     fetch(
       `https://690399efd0f10a340b250ab6.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`
     )
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((arr) => {
         setItems(arr);
         setIsLoading(false);
@@ -48,7 +48,7 @@ export default function Home() {
 
       <div className="content__items">
         {isLoading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+          ? EMPTY_SKELETONS.map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <PizzaBlock {...obj} key={obj.id} />)}
       </div>
     </div>
