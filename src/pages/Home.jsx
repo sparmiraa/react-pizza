@@ -5,7 +5,7 @@ import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 
-EMPTY_SKELETONS = [...new Array(8)];
+const EMPTY_SKELETONS = [...new Array(8)];
 
 export default function Home() {
   const [items, setItems] = React.useState([]);
