@@ -6,11 +6,13 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
+import { SearchContext } from "../App";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
-export default function Home({ searchValue }) {
+export default function Home() {
+  const {searchValue} = React.useContext(SearchContext)
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
