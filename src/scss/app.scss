@@ -1,6 +1,6 @@
+@use "sass:color";
 @import "./variables.scss";
 @import "./libs/normalize.scss";
-
 @import "./components/all.scss";
 
 body {
@@ -57,8 +57,6 @@ body {
     justify-content: space-between;
 
     @media (max-width: 1260px) {
-      // flex-direction: column-reverse;
-
       .categories {
         width: 100%;
         overflow-x: auto;
@@ -97,6 +95,7 @@ body {
     }
   }
 }
+
 .container {
   width: $container-width;
   margin: 0 auto;
@@ -157,11 +156,11 @@ body {
     &:hover {
       svg {
         path {
-          stroke: darken($color: #b6b6b6, $amount: 50);
+          stroke: color.scale(#b6b6b6, $lightness: -50%);
         }
       }
       span {
-        color: darken($color: #b6b6b6, $amount: 50);
+        color: color.scale(#b6b6b6, $lightness: -50%);
       }
     }
   }
@@ -247,14 +246,14 @@ body {
       width: 4%;
 
       .button {
-        border-color: darken($color: $gray-line, $amount: 10);
+        border-color: color.scale($gray-line, $lightness: -10%);
       }
 
       svg {
         transform: rotate(45deg);
 
         path {
-          fill: darken($color: $gray-line, $amount: 15);
+          fill: color.scale($gray-line, $lightness: -15%);
         }
       }
 
@@ -266,8 +265,8 @@ body {
         }
         &:hover,
         &:active {
-          border-color: darken($color: $gray-line, $amount: 80);
-          background-color: darken($color: $gray-line, $amount: 80);
+          border-color: color.scale($gray-line, $lightness: -80%);
+          background-color: color.scale($gray-line, $lightness: -80%);
         }
       }
     }
@@ -302,17 +301,16 @@ body {
         justify-content: center;
         width: 210px;
 
-        border-color: darken($color: $gray-line, $amount: 10);
+        border-color: color.scale($gray-line, $lightness: -10%);
 
         span {
-          color: darken($color: $gray-line, $amount: 20);
-          font-weight: 500;
+          color: color.scale($gray-line, $lightness: -20%);
           font-weight: 600;
         }
 
         &:hover {
-          background-color: darken($color: $gray-line, $amount: 90);
-          border-color: darken($color: $gray-line, $amount: 90);
+          background-color: color.scale($gray-line, $lightness: -90%);
+          border-color: color.scale($gray-line, $lightness: -90%);
 
           span {
             color: $gray-line;
