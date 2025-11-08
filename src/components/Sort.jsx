@@ -2,15 +2,7 @@ import arrowTopImg from "../assets/img/arrow-top.svg";
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort } from "../redux/slices/filterSlice";
-
-const LIST_POPUP = [
-  { name: "популярности (DESC)", sortProperty: "rating" },
-  { name: "популярности (ASC)", sortProperty: "-rating" },
-  { name: "цене (DESC)", sortProperty: "price" },
-  { name: "цене (ASC)", sortProperty: "-price" },
-  { name: "алфавиту (DESC)", sortProperty: "title" },
-  { name: "алфавиту (ASC)", sortProperty: "-title" },
-];
+import { SORT_OPTIONS } from "../constants/sortOptions";
 
 export default function Sort() {
   const dispatch = useDispatch();
@@ -34,7 +26,7 @@ export default function Sort() {
       {open && (
         <div className="sort__popup">
           <ul>
-            {LIST_POPUP.map((obj, index) => (
+            {SORT_OPTIONS.map((obj, index) => (
               <li
                 key={index}
                 onClick={() => onClickListItem(obj)}
