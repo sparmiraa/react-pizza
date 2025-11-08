@@ -17,40 +17,46 @@ const PAGE_LIMIT = 4;
 export default function Home() {
   const dispatch = useDispatch();
   const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
-
   const { searchValue } = React.useContext(SearchContext);
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
+
   const onChangePage = (number) => {
-    dispatch(setCurrentPage(number))
-  }
+    dispatch(setCurrentPage(number));
+  };
 
   React.useEffect(() => {
-    setCurrentPage(1);
-  }, [searchValue]);
+    dispatch(setCurrentPage(1));
+  }, [searchValue, dispatch]);
 
   React.useEffect(() => {
     setIsLoading(true);
 
     const order = sort.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sort.sortProperty.replace("-", "");
-    const category = categoryId > 0 ? `category=${categoryId}` : "";
-    const search = searchValue ? `&search=${searchValue}` : "";
+
+    const params = {
+      page: currentPage,
+      limit: PAGE_LIMIT,
+      sortBy,
+      order,
+      ...(categoryId > 0 && { category: categoryId }),
+      ...(searchValue && { search: searchValue }),
+    };
 
     axios
-      .get(
-        `https://690399efd0f10a340b250ab6.mockapi.io/items?page=${currentPage}&limit=${PAGE_LIMIT}&${category}&sortBy=${sortBy}&order=${order}${search}`
-      )
+      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", { params })
       .then((res) => setItems(res.data))
       .catch(() => setItems([]))
       .finally(() => setIsLoading(false));
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage, dispatch]);
 
   const pizzas = items.map((obj) => <PizzaBlock {...obj} key={obj.id} />);
 
@@ -76,10 +82,7 @@ export default function Home() {
         <div className="content__items">{pizzas}</div>
       )}
 
-      <Pagination
-        currentPage={currentPage}
-        onChangePage={onChangePage}
-      />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 }
