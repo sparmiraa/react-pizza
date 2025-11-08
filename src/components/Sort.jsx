@@ -1,5 +1,7 @@
 import arrowTopImg from "../assets/img/arrow-top.svg";
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { setSort } from "../redux/slices/filterSlice";
 
 const LIST_POPUP = [
   { name: "популярности (DESC)", sortProperty: "rating" },
@@ -10,11 +12,15 @@ const LIST_POPUP = [
   { name: "алфавиту (ASC)", sortProperty: "-title" },
 ];
 
-export default function Sort({ value, onChangeSort }) {
+export default function Sort() {
+  const dispatch = useDispatch();
+  const sort = useSelector(state => state.filter.sort)
+
+
   const [open, setOpen] = React.useState(false);
 
-  const onClickListItem = (index) => {
-    onChangeSort(index);
+  const onClickListItem = (obj) => {
+    dispatch(setSort(obj))
     setOpen(false);
   };
 
@@ -23,7 +29,7 @@ export default function Sort({ value, onChangeSort }) {
       <div className="sort__label">
         <img src={arrowTopImg} alt="" style={{ marginRight: "0.5rem" }} />
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen((prev) => !prev)}>{value.name}</span>
+        <span onClick={() => setOpen((prev) => !prev)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
@@ -33,7 +39,7 @@ export default function Sort({ value, onChangeSort }) {
                 key={index}
                 onClick={() => onClickListItem(obj)}
                 className={
-                  value.sortProperty === obj.sortProperty ? "active" : ""
+                  sort.sortProperty === obj.sortProperty ? "active" : ""
                 }
               >
                 {obj.name}
