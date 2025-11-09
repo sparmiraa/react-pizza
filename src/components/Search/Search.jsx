@@ -19,11 +19,10 @@ export default function Search() {
     inputRef.current.focus();
   };
 
-  // Синхронизируем локальное состояние с URL
   useEffect(() => {
     const urlSearch = searchParams.get("search") || "";
     setValue(urlSearch);
-  }, [searchParams]);
+  }, []);
 
   const updateSearchValue = useCallback(debounce((str) => dispatch(setSearch(str)), 350), []);
 

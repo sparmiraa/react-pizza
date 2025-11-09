@@ -47,7 +47,7 @@ export default function Home() {
       }
       return prevParams;
     });
-  }, [setSearchParams]);
+  }, []);
 
   useEffect(() => {
     const urlCategoryId = searchParams.get("categoryId");
@@ -68,7 +68,7 @@ export default function Home() {
       search: urlSearch
     }));
 
-  }, [searchParams, dispatch]);
+  }, [searchParams]);
 
   useEffect(() => {
     if (isInitialMount.current) { // первый рендер, search равен ""
