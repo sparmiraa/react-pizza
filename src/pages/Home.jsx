@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useCallback, useEffect} from "react";
 import axios from "axios";
 
 import {useSearchParams} from "react-router-dom";
@@ -20,12 +20,10 @@ export default function Home() {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const {categoryId, currentPage, search} = useSelector((state) => state.filter);
+  const {categoryId, currentPage} = useSelector((state) => state.filter);
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-
-  const isInitialMount = useRef(true);
 
   const updateSearchParams = useCallback((updates) => {
     setSearchParams((prevParams) => {
@@ -70,13 +68,6 @@ export default function Home() {
 
   }, [searchParams]);
 
-  useEffect(() => {
-    if (isInitialMount.current) { // первый рендер, search равен ""
-      isInitialMount.current = false;
-      return;
-    }
-    updateSearchParams({search: search || null, page: 1});
-  }, [search]);
 
   const onChangeCategory = (id) => {
     updateSearchParams({categoryId: id, page: 1, search: ""});

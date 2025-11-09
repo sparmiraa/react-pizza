@@ -2,33 +2,50 @@ import React, {useCallback, useEffect, useRef, useState} from "react";
 import debounce from "lodash.debounce";
 
 import styles from "./Search.module.scss";
-import {useDispatch} from "react-redux";
-import {setSearch} from "../../redux/slices/filterSlice.js";
 import {useSearchParams} from "react-router-dom";
 
 export default function Search() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [value, setValue] = useState("");
-  const dispatch = useDispatch();
 
   const inputRef = useRef(null);
-
-  const onClickClear = () => {
-    setValue("");
-    dispatch(setSearch(""));
-    inputRef.current.focus();
-  };
 
   useEffect(() => {
     const urlSearch = searchParams.get("search") || "";
     setValue(urlSearch);
-  }, []);
+  }, [searchParams]);
 
-  const updateSearchValue = useCallback(debounce((str) => dispatch(setSearch(str)), 350), []);
+  const updateSearchInURL = useCallback((searchValue) => {
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+
+      if (!searchValue || searchValue === "") {
+        newParams.delete("search");
+        newParams.delete("page");
+      } else {
+        newParams.set("search", searchValue);
+        newParams.delete("page");
+      }
+
+      return newParams;
+    });
+  }, [setSearchParams]);
+
+  const debouncedUpdateSearch = useCallback(
+    debounce((str) => updateSearchInURL(str), 350),
+    [updateSearchInURL]
+  );
+
+  const onClickClear = () => {
+    setValue("");
+    updateSearchInURL("");
+    inputRef.current.focus();
+  };
 
   const onChangeInput = (event) => {
-    setValue(event.target.value);
-    updateSearchValue(event.target.value);
+    const newValue = event.target.value;
+    setValue(newValue);
+    debouncedUpdateSearch(newValue);
   };
 
   return (
