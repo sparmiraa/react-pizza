@@ -2,29 +2,29 @@ import React, {useCallback, useEffect, useRef, useState} from "react";
 import debounce from "lodash.debounce";
 
 import styles from "./Search.module.scss";
-import {useDispatch} from "react-redux";
-import {setSearch} from "../../redux/slices/filterSlice.js";
-import {useSearchParams} from "react-router-dom";
+import {useFilter} from "../../hook/useFilter.js";
 
 export default function Search() {
-  const [searchParams] = useSearchParams();
   const [value, setValue] = useState("");
-  const dispatch = useDispatch();
 
   const inputRef = useRef(null);
+  const {searchParams, updateSearchParams} = useFilter();
 
   const onClickClear = () => {
     setValue("");
-    dispatch(setSearch(""));
+    updateSearchParams({search: ""})
     inputRef.current.focus();
   };
 
   useEffect(() => {
-    const urlSearch = searchParams.get("search") || "";
-    setValue(urlSearch);
+    const newSearch = searchParams.get("search") || "";
+    setValue(newSearch);
   }, [searchParams]);
 
-  const updateSearchValue = useCallback(debounce((str) => dispatch(setSearch(str)), 350), []);
+  const updateSearchValue = useCallback(
+    debounce((value) => {
+      updateSearchParams({search: value, page: 1})
+    }, 350), [searchParams]);
 
   const onChangeInput = (event) => {
     setValue(event.target.value);
