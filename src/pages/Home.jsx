@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -9,67 +7,65 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
-import { SearchContext } from "../App";
+import {SORT_OPTIONS} from "../constants/sortOptions";
+import {useFilter} from "../hook/useFilter.js";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
-  const { searchValue } = React.useContext(SearchContext);
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const {updateSearchParams, searchParams, categoryId, currentPage} = useFilter();
 
   const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
+    updateSearchParams({categoryId: id, page: 1, search: ""});
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (pageNumber) => {
+    updateSearchParams({page: pageNumber});
   };
 
-  React.useEffect(() => {
-    dispatch(setCurrentPage(1));
-  }, [searchValue, dispatch]);
+  const onChangeSort = (sortObj) => {
+    updateSearchParams({sortProperty: sortObj.sortProperty, page: 1});
+  };
 
   React.useEffect(() => {
     setIsLoading(true);
 
-    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
-    const sortBy = sort.sortProperty.replace("-", "");
+    const urlCategoryId = searchParams.get("categoryId");
+    const urlSortProperty = searchParams.get("sortProperty") || SORT_OPTIONS[0].sortProperty;
+    const urlSearch = searchParams.get("search") || "";
+    const urlPage = Number(searchParams.get("page")) || 1;
+
+    const queryOrderBy = urlSortProperty.includes("-") ? "asc" : "desc";
+    const querySortBy = urlSortProperty.replace("-", "");
 
     const params = {
-      page: currentPage,
+      page: urlPage,
       limit: PAGE_LIMIT,
-      sortBy,
-      order,
-      ...(categoryId > 0 && { category: categoryId }),
-      ...(searchValue && { search: searchValue }),
+      sortBy: querySortBy,
+      order: queryOrderBy,
+      ...(urlCategoryId && Number(urlCategoryId) > 0 && {category: urlCategoryId}),
+      ...(urlSearch && {title: urlSearch}),
     };
 
     axios
-      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", { params })
+      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", {params})
       .then((res) => setItems(res.data))
       .catch(() => setItems([]))
       .finally(() => setIsLoading(false));
+  }, [searchParams]);
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [categoryId, sort.sortProperty, searchValue, currentPage, dispatch]);
-
-  const pizzas = items.map((obj) => <PizzaBlock {...obj} key={obj.id} />);
-
-  const skeletons = React.useMemo(
-    () => EMPTY_SKELETONS.map((_, index) => <Skeleton key={index} />),
-    []
-  );
+  const pizzas = React.useMemo(() => items.map(obj => <PizzaBlock {...obj} key={obj.id}/>), [items]);
+  const skeletons = React.useMemo(() => EMPTY_SKELETONS.map((_, index) => <Skeleton key={index}/>), []);
 
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory}/>
+        <Sort onChangeSort={onChangeSort}/>
       </div>
 
       <h2 className="content__title">Все пиццы</h2>
@@ -77,12 +73,12 @@ export default function Home() {
       {isLoading ? (
         <div className="content__items">{skeletons}</div>
       ) : items.length === 0 ? (
-        <NotFoundItems />
+        <NotFoundItems/>
       ) : (
         <div className="content__items">{pizzas}</div>
       )}
 
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
     </div>
   );
 }
