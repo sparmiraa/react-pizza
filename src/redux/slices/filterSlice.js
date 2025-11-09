@@ -22,11 +22,8 @@ const filterSlice = createSlice({
       state.categoryId = Number(categoryId);
       if (search !== undefined) state.search = search;
     },
-    setSearch(state, action) {
-      state.search = action.payload;
-    },
   }
 })
 
-export const {setFilters, setSearch} = filterSlice.actions;
+export const {setFilters} = filterSlice.actions;
 export default filterSlice.reducer

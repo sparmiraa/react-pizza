@@ -1,12 +1,39 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import plusImg from "../../assets/img/plus.svg";
+import { addItem } from "../../redux/slices/cartSlice";
 
 const TYPE_NAMES = ["тонкое", "традиационное"];
 
-export default function PizzaBlock({ imageUrl, title, price, sizes, types }) {
+export default function PizzaBlock({
+  id,
+  imageUrl,
+  title,
+  price,
+  sizes,
+  types,
+}) {
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id === id)
+  );
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
+
+  const addedCount = cartItem ? cartItem.count : 0
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: TYPE_NAMES[activeType],
+      size: sizes[activeSize],
+    };
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="pizza-block-wrapper">
@@ -41,10 +68,13 @@ export default function PizzaBlock({ imageUrl, title, price, sizes, types }) {
 
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {price} ₽</div>
-          <button className="button button--outline button--add">
+          <button
+            onClick={onClickAdd}
+            className="button button--outline button--add"
+          >
             <img src={plusImg} alt="" style={{ marginRight: "0.5rem" }} />
             <span>Добавить</span>
-            <i>0</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
