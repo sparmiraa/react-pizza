@@ -22,12 +22,9 @@ const filterSlice = createSlice({
       if (action.payload.search !== undefined) {
         state.search = action.payload.search;
       }
-    },
-    setSearch(state, action) {
-      state.search = action.payload;
-    },
+    }
   }
 })
 
-export const {setFilters, setSearch} = filterSlice.actions;
+export const {setFilters} = filterSlice.actions;
 export default filterSlice.reducer
