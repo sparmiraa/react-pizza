@@ -1,14 +1,9 @@
-import React from "react";
+import React, {useCallback, useEffect, useRef} from "react";
 import axios from "axios";
-import qs from "qs";
 
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setCategoryId,
-  setCurrentPage,
-  setFilters,
-} from "../redux/slices/filterSlice";
+import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setFilters} from "../redux/slices/filterSlice";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -16,115 +11,121 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
-import { SearchContext } from "../App";
-import { SORT_OPTIONS } from "../constants/sortOptions";
+import {SORT_OPTIONS} from "../constants/sortOptions";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
 export default function Home() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isSearch = React.useRef(false);
-  const isMounted = React.useRef(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const { categoryId, sort, currentPage } = useSelector(
-    (state) => state.filter
-  );
-  const { searchValue } = React.useContext(SearchContext);
+  const {categoryId, currentPage, search} = useSelector((state) => state.filter);
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  const isInitialMount = useRef(true);
+
+  const updateSearchParams = useCallback((updates) => {
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+
+      Object.entries(updates).forEach(([key, value]) => {
+        if (value === null || value === undefined || value === "" ||
+          (key === "categoryId" && value === 0) ||
+          (key === "page" && value === 1) ||
+          (key === "sortProperty" && value === SORT_OPTIONS[0].sortProperty)) {
+          newParams.delete(key);
+        } else {
+          newParams.set(key, String(value));
+        }
+      });
+
+      if (newParams.toString() !== prevParams.toString()) {
+        return newParams;
+      }
+      return prevParams;
+    });
+  }, [setSearchParams]);
+
+  useEffect(() => {
+    const urlCategoryId = searchParams.get("categoryId");
+    const urlPage = searchParams.get("page");
+    const urlSortProperty = searchParams.get("sortProperty");
+    const urlSearch = searchParams.get("search");
+
+    const urlCategoryIdNumber = urlCategoryId ? Number(urlCategoryId) : 0;
+    const urlPageNumber = urlPage ? Number(urlPage) : 1;
+    const urlSortObj = urlSortProperty
+      ? SORT_OPTIONS.find((obj) => obj.sortProperty === urlSortProperty) || SORT_OPTIONS[0]
+      : SORT_OPTIONS[0];
+
+    dispatch(setFilters({
+      categoryId: urlCategoryIdNumber,
+      currentPage: urlPageNumber,
+      sort: urlSortObj,
+      search: urlSearch
+    }));
+
+  }, [searchParams, dispatch]);
+
+  useEffect(() => {
+    if (isInitialMount.current) { // первый рендер, search равен ""
+      isInitialMount.current = false;
+      return;
+    }
+    updateSearchParams({search: search || null, page: 1});
+  }, [search]);
+
   const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
+    updateSearchParams({categoryId: id, page: 1, search: ""});
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (pageNumber) => {
+    updateSearchParams({page: pageNumber});
   };
 
-  const fetchPizzas = () => {
+  const onChangeSort = (sortObj) => {
+    updateSearchParams({sortProperty: sortObj.sortProperty, page: 1});
+  };
+
+  useEffect(() => {
     setIsLoading(true);
 
-    const orderBy = sort.sortProperty.includes("-") ? "asc" : "desc";
-    const sortBy = sort.sortProperty.replace("-", "");
+    const urlCategoryId = searchParams.get("categoryId");
+    const urlSortProperty = searchParams.get("sortProperty") || SORT_OPTIONS[0].sortProperty;
+    const urlSearch = searchParams.get("search") || "";
+    const urlPage = Number(searchParams.get("page")) || 1;
+
+    const queryOrderBy = urlSortProperty.includes("-") ? "asc" : "desc";
+    const querySortBy = urlSortProperty.replace("-", "");
 
     const params = {
-      page: currentPage,
+      page: urlPage,
       limit: PAGE_LIMIT,
-      sortBy,
-      order: orderBy,
-      ...(categoryId > 0 && { category: categoryId }),
-      ...(searchValue && { search: searchValue }),
+      sortBy: querySortBy,
+      order: queryOrderBy,
+      ...(urlCategoryId && Number(urlCategoryId) > 0 && {category: urlCategoryId}),
+      ...(urlSearch && {title: urlSearch}),
     };
 
     axios
-      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", { params })
+      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", {params})
       .then((res) => setItems(res.data))
       .catch(() => setItems([]))
       .finally(() => setIsLoading(false));
-  };
+  }, [searchParams]);
 
-  React.useEffect(() => {
-    dispatch(setCurrentPage(1));
-  }, [searchValue, dispatch]);
+  const pizzas = items.map((obj) => <PizzaBlock {...obj} key={obj.id}/>);
 
-  React.useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-
-      const sort = SORT_OPTIONS.find(
-        (obj) => obj.sortProperty === params.sortProperty
-      );
-
-      dispatch(
-        setFilters({
-          ...params,
-          sort,
-        })
-      );
-      isSearch.current = true;
-
-      
-    }
-  }, []);
-
-  React.useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    if (!isSearch.current) {
-      fetchPizzas();
-    }
-
-    isSearch.current = false;
-  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
-
-  React.useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortProperty: sort.sortProperty,
-        categoryId,
-        currentPage,
-      });
-
-      navigate(`?${queryString}`);
-    }
-    isMounted.current = true;
-  }, [categoryId, sort.sortProperty, currentPage]);
-
-  const pizzas = items.map((obj) => <PizzaBlock {...obj} key={obj.id} />);
-
-  const skeletons = React.useMemo(
-    () => EMPTY_SKELETONS.map((_, index) => <Skeleton key={index} />),
-    []
-  );
+  const skeletons = React.useMemo(() => EMPTY_SKELETONS.map((_, index) => <Skeleton key={index}/>), []);
 
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory}/>
+        <Sort onChangeSort={onChangeSort}/>
       </div>
 
       <h2 className="content__title">Все пиццы</h2>
@@ -132,12 +133,12 @@ export default function Home() {
       {isLoading ? (
         <div className="content__items">{skeletons}</div>
       ) : items.length === 0 ? (
-        <NotFoundItems />
+        <NotFoundItems/>
       ) : (
         <div className="content__items">{pizzas}</div>
       )}
 
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
     </div>
   );
 }
