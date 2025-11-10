@@ -87,6 +87,28 @@
     &:active {
       background-color: color.scale($orange, $lightness: -8%);
     }
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+      border-color: #ccc;
+      background-color: #f9f9f9;
+  
+      &,
+      span {
+        color: #999;
+      }
+  
+      svg {
+        path {
+          fill: #999;
+        }
+      }
+  
+      &:hover,
+      &:active {
+        background-color: #f9f9f9;
+      }
+    }
   }
 
   &__delimiter {

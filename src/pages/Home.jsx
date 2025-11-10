@@ -60,6 +60,8 @@ export default function Home() {
       .finally(() => setIsLoading(false));
   }, [searchParams]);
 
+  
+
   const pizzas = React.useMemo(
     () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),
     [items]

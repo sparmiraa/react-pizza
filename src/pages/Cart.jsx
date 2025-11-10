@@ -10,15 +10,16 @@ export default function Cart() {
   const { totalPrice, items } = useSelector((state) => state.cart);
 
   const onClickClear = () => {
-      if(window.confirm('Очистить корзину?')) {
-          dispatch(clearItems());
-      }
-    };
-    const totalCount = items.reduce((sum, item) => sum + item.count, 0)
-
-    if(!totalPrice) {
-      return <CartEmpty />
+    if (window.confirm("Очистить корзину?")) {
+      dispatch(clearItems());
     }
+  };
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  if (!items.length) {
+    return <CartEmpty />;
+  }
 
   return (
     <div className="container container--cart">
@@ -98,9 +99,12 @@ export default function Cart() {
         </div>
 
         <div className="content__items">
-          {
-            items.map(item => <CartItem key={item.id} {...item} />)
-          }
+          {items.map((item) => (
+            <CartItem
+              key={`${item.id}_${item.type}_${item.size}`}
+              {...item}
+            />
+          ))}
         </div>
 
         <div className="cart__bottom">

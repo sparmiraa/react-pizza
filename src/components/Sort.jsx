@@ -6,10 +6,10 @@ import {SORT_OPTIONS} from "../constants/sortOptions";
 export default function Sort({onChangeSort}) {
   const sort = useSelector(state => state.filter.sort)
   const [open, setOpen] = useState(false);
-  const sortRef = React.useRef()
+  const sortRef = React.useRef(null)
 
-  const onClickListItem = (obj) => {
-    onChangeSort(obj);
+  const onClickListItem = (item) => {
+    onChangeSort(item);
     setOpen(false);
   };
 
