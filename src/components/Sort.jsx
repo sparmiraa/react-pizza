@@ -19,14 +19,14 @@ export default function Sort({onChangeSort}) {
         setOpen(false);
       }
     };
-  
+
     document.body.addEventListener("click", handleClickOutside);
-  
+
     return () => {
       document.body.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  
+
 
   return (
     <div ref={sortRef} className="sort">

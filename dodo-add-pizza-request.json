@@ -1,0 +1,724 @@
+{
+  "workflowId": "18d8b800-b3e5-47e7-beb4-df472c219efe",
+  "localityId": "0000002b-0000-0000-0000-000000000000",
+  "pizzeriaId": "0000042a-0000-0000-0000-000000000000",
+  "lastVisitedPizzeriaId": "0000042a-0000-0000-0000-000000000000",
+  "carryoutPizzeriaId": "0000042a-0000-0000-0000-000000000000",
+  "pizzeria": {
+    "id": "0000042a-0000-0000-0000-000000000000",
+    "uuid": "000D3A39D824A82E11E9FC73824DC8FD",
+    "name": "\u041C\u043E\u0441\u043A\u0432\u0430 4-19",
+    "translitAlias": "krasnayapresnya",
+    "alias": "\u0421\u0430\u0434\u043E\u0432\u043E-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F \u0434.7",
+    "address": {
+      "streetId": "00008421-0000-0000-0000-000000000000",
+      "houseNumber": "7",
+      "street": {
+        "id": "00008421-0000-0000-0000-000000000000",
+        "localityName": "\u041C\u043E\u0441\u043A\u0432\u0430",
+        "name": "\u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F",
+        "hasHouseFilter": true,
+        "streetType": 0,
+        "shortStreetTypeName": "\u0443\u043B.",
+        "fullStreetTypeName": "\u0443\u043B\u0438\u0446\u0430"
+      }
+    },
+    "menuRoute": {
+      "url": "/moscow/krasnayapresnya",
+      "seoInfo": {
+        "title": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u043D\u0430 \u0434\u043E\u043C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E, \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E",
+        "metaDescription": "\uD83C\uDF55\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430: \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u0435\u0434\u044B \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E. \u041F\u043E\u043A\u0443\u043F\u0430\u0439 \u0438 \u043E\u0444\u043E\u0440\u043C\u043B\u044F\u0439 \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru \u0438\u043B\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443 8 800 302-00-60.",
+        "metaOgTitle": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u043D\u0430 \u0434\u043E\u043C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E, \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E",
+        "metaOgDescription": "\uD83C\uDF55\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430: \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u0435\u0434\u044B \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E. \u041F\u043E\u043A\u0443\u043F\u0430\u0439 \u0438 \u043E\u0444\u043E\u0440\u043C\u043B\u044F\u0439 \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru \u0438\u043B\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443 8 800 302-00-60.",
+        "metaOgUrl": "dodopizza.ru/moscow/krasnayapresnya",
+        "metaOgImage": ""
+      }
+    },
+    "contactsRoute": {
+      "url": "/moscow/krasnayapresnya/contacts",
+      "seoInfo": {
+        "title": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430, \u0441\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0414\u043E\u0434\u043E",
+        "metaDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0442\u0435\u043B\u0435\u0444\u043E\u043D 8 800 302-00-60. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u043F\u0438\u0446\u0446\u0443 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru. \u0413\u043E\u0440\u044F\u0447\u0430\u044F \u0438 \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u043F\u0438\u0446\u0446\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442!",
+        "metaOgTitle": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430, \u0441\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0414\u043E\u0434\u043E",
+        "metaOgDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0442\u0435\u043B\u0435\u0444\u043E\u043D 8 800 302-00-60. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u043F\u0438\u0446\u0446\u0443 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru. \u0413\u043E\u0440\u044F\u0447\u0430\u044F \u0438 \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u043F\u0438\u0446\u0446\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442!",
+        "metaOgUrl": "dodopizza.ru/moscow/krasnayapresnya/contacts",
+        "metaOgImage": ""
+      }
+    },
+    "takesCarryoutOrders": true,
+    "managerPhoneNumber": "\u002B79255855977",
+    "nextOpenTime": {
+      "isTomorrow": true,
+      "openTimeFormated": "09:00"
+    },
+    "metroStations": [
+      "\u0411\u0430\u0440\u0440\u0438\u043A\u0430\u0434\u043D\u0430\u044F",
+      "\u041A\u0440\u0430\u0441\u043D\u043E\u043F\u0440\u0435\u0441\u043D\u0435\u043D\u0441\u043A\u0430\u044F",
+      "\u200B\u041C\u0430\u044F\u043A\u043E\u0432\u0441\u043A\u0430\u044F"
+    ],
+    "restaurantSchedule": [
+      {
+        "startDay": 1,
+        "endDay": 5,
+        "openTime": "09:00",
+        "closeTime": "22:00",
+        "isFullDay": false,
+        "openTimeValue": "09:00",
+        "closeTimeValue": "22:00"
+      },
+      {
+        "startDay": 6,
+        "endDay": 0,
+        "openTime": "10:00",
+        "closeTime": "22:00",
+        "isFullDay": false,
+        "openTimeValue": "10:00",
+        "closeTimeValue": "22:00"
+      }
+    ],
+    "deliverySchedule": [
+      {
+        "startDay": 1,
+        "endDay": 5,
+        "openTime": "09:00",
+        "closeTime": "22:00",
+        "isFullDay": false,
+        "openTimeValue": "09:00",
+        "closeTimeValue": "22:00"
+      },
+      {
+        "startDay": 6,
+        "endDay": 0,
+        "openTime": "10:00",
+        "closeTime": "22:00",
+        "isFullDay": false,
+        "openTimeValue": "10:00",
+        "closeTimeValue": "22:00"
+      }
+    ],
+    "operatingTypes": [
+      1,
+      3,
+      2
+    ],
+    "webcamSettings": {
+      "serverId": "100-CiBuOe8thQg2saXjPU3ykn",
+      "cameraId": "0"
+    },
+    "coordinates": {
+      "lat": 55.761355,
+      "lon": 37.585637
+    },
+    "isClosed": false,
+    "timeZoneUtcOffset": "03:00:00"
+  },
+  "deliveryAddress": null,
+  "deliveryLocation": {
+    "lat": 55.74592972,
+    "lon": 37.57715607,
+    "comment": null,
+    "apartment": null,
+    "porch": null,
+    "doorCode": null,
+    "floor": null,
+    "addressAlias": null,
+    "district": null,
+    "region": null,
+    "locality": "\u041C\u043E\u0441\u043A\u0432\u0430",
+    "street": "\u0421\u043C\u043E\u043B\u0435\u043D\u0441\u043A\u0430\u044F \u0443\u043B\u0438\u0446\u0430",
+    "house": "10",
+    "postCode": null,
+    "business": null,
+    "formattedAddress": "\u041C\u043E\u0441\u043A\u0432\u0430, \u0421\u043C\u043E\u043B\u0435\u043D\u0441\u043A\u0430\u044F \u0443\u043B\u0438\u0446\u0430, 10",
+    "addressId": null,
+    "id": "622fa607-f33b-4196-9987-bf2adfbf7820",
+    "saveToClientProfile": true
+  },
+  "clientDeliveryLocationId": "00000000-0000-0000-0000-000000000000",
+  "clientPhoneNumber": "",
+  "clientName": null,
+  "orderType": 1,
+  "cart": {
+    "comboCartLines": [],
+    "missingComboCartLines": [],
+    "giftCombosCartLines": [],
+    "missingGiftCombosCartLines": [],
+    "pizzasCartLines": [
+      {
+        "cartLineId": "97115f84-6a99-4c52-9bc8-8a5ba148e927",
+        "name": "\u041F\u0435\u043F\u043F\u0435\u0440\u043E\u043D\u0438 \u0444\u0440\u0435\u0448",
+        "variationValues": {
+          "sizeGroup": 2,
+          "dough": 1
+        },
+        "productSize": {
+          "measure": 32,
+          "value": 30
+        },
+        "removedIngredients": [],
+        "addedMaterialTypes": [],
+        "pizzaHalves": [],
+        "productImages": [
+          {
+            "uuId": "0199F218CEE97892AB472CFF43E56CBC",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 0,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_1875x1875.png",
+            "height": 1875,
+            "width": 1875
+          },
+          {
+            "uuId": "0199F218CEEA75F18732CCA16A8D5D31",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 1,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_760x760.png",
+            "height": 760,
+            "width": 760
+          },
+          {
+            "uuId": "0199F218CEEB7732B898CADDD95F9764",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 2,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_584x584.png",
+            "height": 584,
+            "width": 584
+          },
+          {
+            "uuId": "0199F218CEED70B6A964A42979CCAC6C",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 3,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_366x366.png",
+            "height": 366,
+            "width": 366
+          },
+          {
+            "uuId": "0199F218CEEF743B9ED29C05930CC2AB",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 4,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_292x292.png",
+            "height": 292,
+            "width": 292
+          },
+          {
+            "uuId": "0199F218CEF273CFA5E78C4094D1919A",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 5,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_233x233.png",
+            "height": 233,
+            "width": 233
+          },
+          {
+            "uuId": "0199F218CEF475F883F8ED7C7C13D466",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 6,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_183x183.png",
+            "height": 183,
+            "width": 183
+          },
+          {
+            "uuId": "0199F218CEF771759A1794C9A8B6D7AE",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 7,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_146x146.png",
+            "height": 146,
+            "width": 146
+          },
+          {
+            "uuId": "0199F218CEFC7254B2ED29E13AA4FEEE",
+            "productUUId": "000D3A39D824A82E11E9A18231161F87",
+            "cultureName": "ru-RU",
+            "size": 8,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0198bf57bc517218ab93c762f4b0193e_138x138.png",
+            "height": 138,
+            "width": 138
+          }
+        ],
+        "category": 1,
+        "goodsId": "000D3A39D824A82E11E9A18231161F87",
+        "count": 10,
+        "maxCount": 100,
+        "cartItems": [
+          "97115f84-6a99-4c52-9bc8-8a5ba148e927",
+          "f470edbf-d5e5-430a-8cb9-8851bae1617a",
+          "859d2ded-192f-4e72-af19-196abc7d31f4",
+          "44027f9f-dea3-45fa-910b-94667011529a",
+          "20457e56-6190-4f16-ba20-a3cc57695745",
+          "cb5f56a0-f733-49b9-a356-abb3d2cbab7f",
+          "cf8f7c71-388a-41d4-98eb-02fac48be496",
+          "626e0d9e-4d3c-4575-928e-157d6c1c8f9e",
+          "76b823b2-b86e-4df4-8ff8-1f04c43cfbe5",
+          "1832a278-dd41-4580-bc8a-615241c86754"
+        ],
+        "bonusAction": null,
+        "totalWithoutDiscount": {
+          "value": 6390.0,
+          "formatedValue": "6\u00A0390 "
+        },
+        "totalWithDiscount": {
+          "value": 6390.0,
+          "formatedValue": "6\u00A0390 "
+        },
+        "totalDiscount": {
+          "value": 0,
+          "formatedValue": "0 "
+        },
+        "upsellVersion": 0,
+        "isEditable": true
+      },
+      {
+        "cartLineId": "8edb7164-12f1-4a29-9d7c-61ef0bc5c4cc",
+        "name": "\u041F\u0435\u043F\u043F\u0435\u0440\u043E\u043D\u0438 \u0444\u0440\u0435\u0448",
+        "variationValues": {
+          "sizeGroup": 4,
+          "dough": 1
+        },
+        "productSize": {
+          "measure": 32,
+          "value": 20
+        },
+        "removedIngredients": [],
+        "addedMaterialTypes": [],
+        "pizzaHalves": [],
+        "productImages": [
+          {
+            "uuId": "0199F218BADD7440ACB5ED121D14ECDD",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 0,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_1875x1875.png",
+            "height": 1875,
+            "width": 1875
+          },
+          {
+            "uuId": "0199F218BADE70D8BA32619B76FB100F",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 1,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_760x760.png",
+            "height": 760,
+            "width": 760
+          },
+          {
+            "uuId": "0199F218BADE770280A20CB2F47FA0BB",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 2,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_584x584.png",
+            "height": 584,
+            "width": 584
+          },
+          {
+            "uuId": "0199F218BADF741ABD8800489F21A438",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 3,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_366x366.png",
+            "height": 366,
+            "width": 366
+          },
+          {
+            "uuId": "0199F218BADF798EB036539648E114B9",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 4,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_292x292.png",
+            "height": 292,
+            "width": 292
+          },
+          {
+            "uuId": "0199F218BAE074CA80617654E49DA8B1",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 5,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_233x233.png",
+            "height": 233,
+            "width": 233
+          },
+          {
+            "uuId": "0199F218BAE0798EB5A8D784D7D2DF81",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 6,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_183x183.png",
+            "height": 183,
+            "width": 183
+          },
+          {
+            "uuId": "0199F218BAE175B9B9C2C085FEC09E16",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 7,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_146x146.png",
+            "height": 146,
+            "width": 146
+          },
+          {
+            "uuId": "0199F218BAE2732CAADC376EB8B7457C",
+            "productUUId": "11EFACF09AA5137E837499B22BD40B20",
+            "cultureName": "ru-RU",
+            "size": 8,
+            "url": "https://cdn.dodostatic.net/static/Img/Products/0199f218497b75e9af21dba387e3b14b_138x138.png",
+            "height": 138,
+            "width": 138
+          }
+        ],
+        "category": 1,
+        "goodsId": "11EFACF09AA5137E837499B22BD40B20",
+        "count": 2,
+        "maxCount": 100,
+        "cartItems": [
+          "8edb7164-12f1-4a29-9d7c-61ef0bc5c4cc",
+          "05def89d-95be-4de4-8e88-665a4f43f8bb"
+        ],
+        "bonusAction": null,
+        "totalWithoutDiscount": {
+          "value": 598.0,
+          "formatedValue": "598 "
+        },
+        "totalWithDiscount": {
+          "value": 598.0,
+          "formatedValue": "598 "
+        },
+        "totalDiscount": {
+          "value": 0,
+          "formatedValue": "0 "
+        },
+        "upsellVersion": 0,
+        "isEditable": true
+      }
+    ],
+    "snacksCartLines": [],
+    "goodsCartLines": [],
+    "drinksCartLines": [],
+    "saucesCartLines": [],
+    "missingCartLines": [],
+    "missingGiftCartLines": [],
+    "bonusActionGiftProductCartLines": [],
+    "price": {
+      "tax": {
+        "value": 0.0,
+        "formatedValue": "0 "
+      },
+      "deliveryFee": {
+        "value": 0.0,
+        "formatedValue": "0 "
+      },
+      "discount": {
+        "value": 0,
+        "formatedValue": "0 "
+      },
+      "subtotal": {
+        "value": 6988.0,
+        "formatedValue": "6\u00A0988 "
+      },
+      "dodoRubles": {
+        "value": 0,
+        "formatedValue": "0 "
+      },
+      "total": {
+        "value": 6988.0,
+        "formatedValue": "6\u00A0988 "
+      },
+      "rawPrice": {
+        "value": 6988.0,
+        "formatedValue": "6\u00A0988 "
+      },
+      "rawPriceWithoutGoods": {
+        "value": 6988.0,
+        "formatedValue": "6\u00A0988 "
+      },
+      "totalCustomizedPrice": {
+        "value": 6988.0,
+        "formatedValue": "6\u00A0988 "
+      },
+      "loyaltyProgramCoinsRewarded": {
+        "value": 349.0,
+        "formatedValue": "349 "
+      },
+      "loyaltyProgramCoinsSpent": {
+        "value": 0.0,
+        "formatedValue": "0 "
+      },
+      "totalDiscount": {
+        "value": 0.0,
+        "formatedValue": "0 "
+      },
+      "roundedCashPrice": null
+    },
+    "bonusAction": null,
+    "errors": [],
+    "freeSaucesCount": 0
+  },
+  "selectedPaymentMethod": {
+    "id": "paymentgateway__redirect__12E112A0244683FD11EF6192938570B6",
+    "type": "paymentgateway__redirect",
+    "service": "paymentgateway",
+    "brandName": ""
+  },
+  "pizzeriaError": 1,
+  "promo": {
+    "promocode": null,
+    "promoCodeBonusActionStatus": 0,
+    "info": null,
+    "promoCodeApplyMessage": null
+  },
+  "paymentErrorCode": 0,
+  "paymentErrorMessage": null,
+  "deferredOrderInfo": null,
+  "clientNote": null,
+  "receiptEmail": null,
+  "state": 2,
+  "orderUUId": "B218FF4968E0BCCF11F0B4D84790EBB3",
+  "placedOrderUUId": null,
+  "placedAtUtc": null,
+  "orderNumber": null,
+  "orderStatus": 0,
+  "orderCancelStatus": 2,
+  "orderCompleteTimeUtc": 1762787527156,
+  "isFreeOrder": false,
+  "hasBakedProducts": true,
+  "orderPlacingError": null,
+  "routes": {
+    "certificates": {
+      "url": null,
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "loyaltyProgram": {
+      "url": "/moscow/loyaltyprogram",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u0412\u043A\u0443\u0441\u043D\u044B\u0439 \u043A\u044D\u0448\u0431\u044D\u043A | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 \u043B\u044E\u0431\u0438\u043C\u044B\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B \u0432 \u00AB\u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0435\u00BB \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439\u0442\u0435 \u0434\u043E\u0434\u043E\u043A\u043E\u0438\u043D\u044B \u0441 \u043A\u0430\u0436\u0434\u044B\u043C \u0437\u0430\u043A\u0430\u0437\u043E\u043C. \u041C\u0435\u043D\u044F\u0439\u0442\u0435 \u0434\u043E\u0434\u043E\u043A\u043E\u0438\u043D\u044B \u043D\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B \u0432 \u043C\u043E\u0431\u0438\u043B\u044C\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438 \u00AB\u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430\u00BB.",
+        "metaOgTitle": "\uD83C\uDF55 \u0412\u043A\u0443\u0441\u043D\u044B\u0439 \u043A\u044D\u0448\u0431\u044D\u043A | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 \u043B\u044E\u0431\u0438\u043C\u044B\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B \u0432 \u00AB\u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0435\u00BB \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439\u0442\u0435 \u0434\u043E\u0434\u043E\u043A\u043E\u0438\u043D\u044B \u0441 \u043A\u0430\u0436\u0434\u044B\u043C \u0437\u0430\u043A\u0430\u0437\u043E\u043C. \u041C\u0435\u043D\u044F\u0439\u0442\u0435 \u0434\u043E\u0434\u043E\u043A\u043E\u0438\u043D\u044B \u043D\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B \u0432 \u043C\u043E\u0431\u0438\u043B\u044C\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438 \u00AB\u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430\u00BB.",
+        "metaOgUrl": "dodopizza.ru/moscow/loyaltyprogram",
+        "metaOgImage": "https://dodopizza-a.akamaihd.net/static/images/loyaltyprogram/og-image-ru.jpg"
+      }
+    },
+    "menu": {
+      "url": "/moscow/krasnayapresnya",
+      "seoInfo": {
+        "title": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u043D\u0430 \u0434\u043E\u043C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E, \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E",
+        "metaDescription": "\uD83C\uDF55\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430: \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u0435\u0434\u044B \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E. \u041F\u043E\u043A\u0443\u043F\u0430\u0439 \u0438 \u043E\u0444\u043E\u0440\u043C\u043B\u044F\u0439 \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru \u0438\u043B\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443 8 800 302-00-60.",
+        "metaOgTitle": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u043D\u0430 \u0434\u043E\u043C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E, \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E",
+        "metaOgDescription": "\uD83C\uDF55\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430: \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0435\u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u0435\u0434\u044B \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C \u0438\u0437 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E. \u041F\u043E\u043A\u0443\u043F\u0430\u0439 \u0438 \u043E\u0444\u043E\u0440\u043C\u043B\u044F\u0439 \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru \u0438\u043B\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443 8 800 302-00-60.",
+        "metaOgUrl": "dodopizza.ru/moscow/krasnayapresnya",
+        "metaOgImage": ""
+      }
+    },
+    "cart": {
+      "url": "/moscow/cart",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041A\u043E\u0440\u0437\u0438\u043D\u0430 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041A\u043E\u0440\u0437\u0438\u043D\u0430 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "dodopizza.ru/moscow/cart",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "checkout": {
+      "url": "/moscow/checkout",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u043A\u0430\u0437\u0430 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u043A\u0430\u0437\u0430 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "dodopizza.ru/moscow/checkout",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "currentOrders": {
+      "url": "/moscow/currentorders",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u0417\u0430\u043A\u0430\u0437 \u2116 ## \u043F\u0440\u0438\u043D\u044F\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u0417\u0430\u043A\u0430\u0437 \u2116 ## \u043F\u0440\u0438\u043D\u044F\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "dodopizza.ru/moscow/currentorders",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "bonusActions": {
+      "url": "/moscow/bonusactions",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u0410\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u0410\u043A\u0446\u0438\u0438 \u0438 \u0441\u043A\u0438\u0434\u043A\u0438 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "dodopizza.ru/moscow/bonusactions",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "contactsPizzerias": {
+      "url": "/moscow/contacts",
+      "seoInfo": {
+        "title": "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0430\u0434\u0440\u0435\u0441\u0430 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u043E\u0432 \u0440\u044F\u0434\u043E\u043C \u0441\u043E \u043C\u043D\u043E\u0439 \u043D\u0430 \u043A\u0430\u0440\u0442\u0435, \u0447\u0430\u0441\u044B \u0440\u0430\u0431\u043E\u0442\u044B \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430",
+        "metaDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E \u043D\u0430 \u043A\u0430\u0440\u0442\u0435 \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 8 800 302-00-60: \u0443\u0437\u043D\u0430\u0442\u044C \u0430\u0434\u0440\u0435\u0441\u0430 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u043E\u0432 \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C, \u0447\u0430\u0441\u044B \u0440\u0430\u0431\u043E\u0442\u044B. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru.",
+        "metaOgTitle": "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0430\u0434\u0440\u0435\u0441\u0430 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u043E\u0432 \u0440\u044F\u0434\u043E\u043C \u0441\u043E \u043C\u043D\u043E\u0439 \u043D\u0430 \u043A\u0430\u0440\u0442\u0435, \u0447\u0430\u0441\u044B \u0440\u0430\u0431\u043E\u0442\u044B \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430",
+        "metaOgDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u0438 \u0414\u043E\u0434\u043E \u043D\u0430 \u043A\u0430\u0440\u0442\u0435 \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 8 800 302-00-60: \u0443\u0437\u043D\u0430\u0442\u044C \u0430\u0434\u0440\u0435\u0441\u0430 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u043E\u0432 \u0440\u044F\u0434\u043E\u043C \u0441 \u0434\u043E\u043C\u043E\u043C \u0438\u043B\u0438 \u043E\u0444\u0438\u0441\u043E\u043C, \u0447\u0430\u0441\u044B \u0440\u0430\u0431\u043E\u0442\u044B. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru.",
+        "metaOgUrl": "dodopizza.ru/moscow/contacts",
+        "metaOgImage": ""
+      }
+    },
+    "profile": {
+      "url": "/moscow/profile",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "corporateProfile": {
+      "url": "/moscow/corporate",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "corporateAccountRegistration": {
+      "url": "/moscow/corporate-registration",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "clientBonuses": {
+      "url": "/moscow/clientbonuses",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "legal": {
+      "url": "/moscow/krasnayapresnya/legal",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041F\u0440\u0430\u0432\u043E\u0432\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgTitle": "\uD83C\uDF55 \u041F\u0440\u0430\u0432\u043E\u0432\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u041F\u0438\u0446\u0446\u0430 \u043E\u0442 289 \u0440\u0443\u0431\u043B\u0435\u0439. \u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E\u043C\u043E\u0439 \u0438 \u0432 \u043E\u0444\u0438\u0441. \u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u043C \u0432 \u043F\u0440\u044F\u043C\u043E\u043C \u044D\u0444\u0438\u0440\u0435, \u043A\u0430\u043A \u0433\u043E\u0442\u043E\u0432\u0438\u043C \u0432\u0430\u0448\u0443 \u043F\u0438\u0446\u0446\u0443",
+        "metaOgUrl": "http://dodopizza.ru/api/workflow/cart/product",
+        "metaOgImage": "/SeoSnippetImages/ru-snippet.jpg"
+      }
+    },
+    "about": {
+      "url": "/moscow/about",
+      "seoInfo": {
+        "title": "\uD83C\uDF55 \u041E \u043D\u0430\u0441 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaDescription": "\u0422\u0443\u0442 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u044E\u0442 \u0443\u0434\u0438\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u0432\u0435\u0449\u0438",
+        "metaOgTitle": "\uD83C\uDF55 \u041E \u043D\u0430\u0441 | \u0414\u043E\u0434\u043E \u041F\u0438\u0446\u0446\u0430 \u041C\u043E\u0441\u043A\u0432\u0430 | \u0421\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0432 \u0420\u043E\u0441\u0441\u0438\u0438",
+        "metaOgDescription": "\u0422\u0443\u0442 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u044E\u0442 \u0443\u0434\u0438\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u0432\u0435\u0449\u0438",
+        "metaOgUrl": "dodopizza.ru/moscow/about",
+        "metaOgImage": "https://dodopizza-a.akamaihd.net/images/og/DodoOG-fb.png"
+      }
+    },
+    "pizzeriaContacts": {
+      "url": "/moscow/krasnayapresnya/contacts",
+      "seoInfo": {
+        "title": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430, \u0441\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0414\u043E\u0434\u043E",
+        "metaDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0442\u0435\u043B\u0435\u0444\u043E\u043D 8 800 302-00-60. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u043F\u0438\u0446\u0446\u0443 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru. \u0413\u043E\u0440\u044F\u0447\u0430\u044F \u0438 \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u043F\u0438\u0446\u0446\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442!",
+        "metaOgTitle": "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430, \u0441\u0435\u0442\u044C \u043F\u0438\u0446\u0446\u0435\u0440\u0438\u0439 \u21161 \u0414\u043E\u0434\u043E",
+        "metaOgDescription": "\uD83C\uDF55\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F \u043F\u043E \u0430\u0434\u0440\u0435\u0441\u0443 \u0443\u043B. \u0421\u0430\u0434\u043E\u0432\u0430\u044F-\u041A\u0443\u0434\u0440\u0438\u043D\u0441\u043A\u0430\u044F, 7, \u041C\u043E\u0441\u043A\u0432\u0430 \u2014 \u0442\u0435\u043B\u0435\u0444\u043E\u043D 8 800 302-00-60. \u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u0439 \u043F\u0438\u0446\u0446\u0443 \u0441 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E\u0439 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u043E\u0439 \u0432 \u041C\u043E\u0441\u043A\u0432\u0430 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 dodopizza.ru. \u0413\u043E\u0440\u044F\u0447\u0430\u044F \u0438 \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u043F\u0438\u0446\u0446\u0430 \u0437\u0430 30 \u043C\u0438\u043D\u0443\u0442!",
+        "metaOgUrl": "dodopizza.ru/moscow/krasnayapresnya/contacts",
+        "metaOgImage": ""
+      }
+    }
+  },
+  "stopLists": {
+    "productUUIds": [
+      "11EA785596590FED03275460ADE28BC0",
+      "11ED34CAA7C9D7F1188BAF46CC988860",
+      "11EDF5469053B3C4DCEDFC586E5E8F00",
+      "11EE9A04908A675354BA472D74690390",
+      "11EE9A05908A675354BA472D22207310",
+      "11EFE7C7B78553C49D6D2FCB9CA40DC2",
+      "11F037138B40579E789FC725E9EFD281"
+    ],
+    "toppingUUIds": [
+      "11F03714A3458F95D498C51488211B30",
+      "11EA78559B8B85FE4A8F44D96B134640",
+      "11EE9A04BAE96BA6DA0DE4B356604340"
+    ]
+  },
+  "currentOrdersOverloadMode": false,
+  "isCorporateOrder": false,
+  "hasCookedProducts": true,
+  "taxpayer": {
+    "identificationNumber": null
+  },
+  "package": null,
+  "paymentDetails": {
+    "paymentType": 3,
+    "pgPaymentType": null,
+    "paymentId": null,
+    "externalNumber": null,
+    "maskedCardNumber": null,
+    "bankCode": null,
+    "cardNetwork": null,
+    "cardDescription": null
+  },
+  "minDeliveryPrice": {
+    "value": 1.0,
+    "formatedValue": "1 "
+  },
+  "minDeliveryPricePersonalized": {
+    "value": 0,
+    "formatedValue": "0 "
+  },
+  "deliveryFeeLevels": [
+    {
+      "minPrice": 1.0,
+      "maxPrice": 300.0,
+      "fee": 299.0
+    },
+    {
+      "minPrice": 300.0,
+      "maxPrice": 450.0,
+      "fee": 199.0
+    },
+    {
+      "minPrice": 450.0,
+      "maxPrice": 600.0,
+      "fee": 99.0
+    },
+    {
+      "minPrice": 600.0,
+      "maxPrice": 731.0,
+      "fee": 49.0
+    },
+    {
+      "minPrice": 731.0,
+      "maxPrice": 1000000000.0,
+      "fee": 0.0
+    }
+  ]
+}

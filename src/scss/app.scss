@@ -54,22 +54,26 @@ body {
   &__top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
-    @media (max-width: 1260px) {
+    @media (max-width: 1460px) {
+
       .categories {
+        flex-grow: 1;
         width: 100%;
         overflow-x: auto;
 
         ul {
-          width: 785px;
+          width: auto;
         }
       }
 
       .sort {
-        b {
-          display: none;
-        }
+        display: flex;
+        justify-content: flex-end;
+        //b {
+        //  display: none;
+        //}
+
         img {
           padding-left: 20px;
         }
@@ -79,18 +83,24 @@ body {
     @media (max-width: 760px) {
       .categories {
         ul {
+          padding: 14px 0;
+
           li {
             padding: 8px 20px;
           }
         }
       }
 
-      @media (max-width: 820px) {
-        .categories {
-          margin-top: 30px;
-        }
 
-        flex-direction: column-reverse;
+    }
+    @media (max-width: 920px) {
+      .categories {
+        margin-bottom: 30px;
+      }
+
+      flex-direction: column;
+      .sort {
+        width: 100%;
       }
     }
   }
@@ -103,6 +113,7 @@ body {
   &--cart {
     max-width: 820px;
     margin: 90px auto;
+
     .content__title {
       margin: 0;
     }
@@ -127,6 +138,7 @@ body {
       width: 30px;
       height: 30px;
       margin-right: 10px;
+
       path {
         stroke: $black;
         stroke-width: 1.9;
@@ -159,6 +171,7 @@ body {
           stroke: color.scale(#b6b6b6, $lightness: -50%);
         }
       }
+
       span {
         color: color.scale(#b6b6b6, $lightness: -50%);
       }
@@ -172,9 +185,13 @@ body {
   &__item {
     display: flex;
     width: 100%;
-    border-top: 1px solid $gray-line;
+    border-top: 10px solid $gray-line;
     padding-top: 30px;
     margin-top: 30px;
+
+    &:first-child {
+      border-top: 0;
+    }
 
     &-img {
       display: flex;
@@ -263,6 +280,7 @@ body {
           height: 11.5px;
           position: relative;
         }
+
         &:hover,
         &:active {
           border-color: color.scale($gray-line, $lightness: -80%);
@@ -319,6 +337,7 @@ body {
 
         svg {
           margin-right: 12px;
+
           path {
             fill: transparent;
             stroke-width: 2;
@@ -353,7 +372,7 @@ body {
       color: #777777;
     }
 
-    icon {
+    .icon {
       position: relative;
       top: 2px;
     }

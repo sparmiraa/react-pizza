@@ -7,6 +7,7 @@ import {Routes, Route} from "react-router-dom";
 
 
 import React from "react";
+import {ToastContainer} from "react-toastify";
 
 
 export default function App() {
@@ -20,6 +21,21 @@ export default function App() {
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={true}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        closeButton={false}
+        className="toast-container"
+        toastClassName="toast-item"
+      />
+
     </div>
   );
 }

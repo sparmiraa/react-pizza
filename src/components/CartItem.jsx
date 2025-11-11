@@ -30,7 +30,7 @@ export default function CartItem({ id, title, price, count, imageUrl, type, size
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
-        <p>{type}, {size} см.</p>
+        <p>{type} тесто, {size} см.</p>
       </div>
       <div className="cart__item-count">
         <button onClick={onClickMinus} className="button button--outline button--circle cart__item-count-minus" disabled={count === 1}>
