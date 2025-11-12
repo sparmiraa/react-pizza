@@ -261,7 +261,6 @@ body {
       }
 
       svg {
-        transform: rotate(45deg);
 
         path {
           fill: color.scale($gray-line, $lightness: -15%);
@@ -270,8 +269,8 @@ body {
 
       .button {
         svg {
-          width: 11.5px;
-          height: 11.5px;
+          width: 18px;
+          height: 18px;
           position: relative;
         }
         &:hover,

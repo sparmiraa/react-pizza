@@ -7,15 +7,19 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
+import FetchError from '../components/FetchError/FetchError.jsx'
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
+import { fetchPizzas } from "../redux/slices/pizzaSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
 export default function Home() {
-  const [items, setItems] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const dispatch = useDispatch();
+  const {items, status} = useSelector((state) => state.pizza);
+
   const { updateSearchParams, searchParams, categoryId, currentPage } =
     useFilter();
 
@@ -32,35 +36,33 @@ export default function Home() {
   };
 
   React.useEffect(() => {
-    setIsLoading(true);
+    const getPizzas = async () => {
+ 
 
-    const urlCategoryId = searchParams.get("categoryId");
-    const urlSortProperty =
-      searchParams.get("sortProperty") || SORT_OPTIONS[0].sortProperty;
-    const urlSearch = searchParams.get("search") || "";
-    const urlPage = Number(searchParams.get("page")) || 1;
+      const urlCategoryId = searchParams.get("categoryId");
+      const urlSortProperty =
+        searchParams.get("sortProperty") || SORT_OPTIONS[0].sortProperty;
+      const urlSearch = searchParams.get("search") || "";
+      const urlPage = Number(searchParams.get("page")) || 1;
 
-    const queryOrderBy = urlSortProperty.includes("-") ? "asc" : "desc";
-    const querySortBy = urlSortProperty.replace("-", "");
+      const queryOrderBy = urlSortProperty.includes("-") ? "asc" : "desc";
+      const querySortBy = urlSortProperty.replace("-", "");
 
-    const params = {
-      page: urlPage,
-      limit: PAGE_LIMIT,
-      sortBy: querySortBy,
-      order: queryOrderBy,
-      ...(urlCategoryId &&
-        Number(urlCategoryId) > 0 && { category: urlCategoryId }),
-      ...(urlSearch && { title: urlSearch }),
+      const params = {
+        page: urlPage,
+        limit: PAGE_LIMIT,
+        sortBy: querySortBy,
+        order: queryOrderBy,
+        ...(urlCategoryId &&
+          Number(urlCategoryId) > 0 && { category: urlCategoryId }),
+        ...(urlSearch && { title: urlSearch }),
+      };
+    
+        dispatch(fetchPizzas(params));
+
     };
-
-    axios
-      .get("https://690399efd0f10a340b250ab6.mockapi.io/items", { params })
-      .then((res) => setItems(res.data))
-      .catch(() => setItems([]))
-      .finally(() => setIsLoading(false));
+    getPizzas();
   }, [searchParams]);
-
-  
 
   const pizzas = React.useMemo(
     () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),
@@ -80,8 +82,10 @@ export default function Home() {
 
       <h2 className="content__title">Все пиццы</h2>
 
-      {isLoading ? (
+      {status === 'loading' ? (
         <div className="content__items">{skeletons}</div>
+      ) : status === 'error' ? (
+        <FetchError />
       ) : items.length === 0 ? (
         <NotFoundItems />
       ) : (
