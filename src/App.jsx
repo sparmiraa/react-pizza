@@ -3,13 +3,21 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
-import {Routes, Route} from "react-router-dom";
-import {cssTransition, ToastContainer} from "react-toastify";
+import {Route, Routes} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
-import React from "react";
-
+import React, {useEffect} from "react";
+import {getCart} from "./redux/slices/cartSlice.js";
+import {useDispatch} from "react-redux";
 
 export default function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCart());
+  }, [])
+
   return (
     <div className="wrapper">
       <Header/>
