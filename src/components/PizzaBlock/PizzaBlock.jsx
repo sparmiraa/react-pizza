@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
-import star from "../../assets/img/star.svg";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 
@@ -107,7 +106,7 @@ export default function PizzaBlock({
             className="button button--outline button--add"
           >
             <PlusIcon />
-            <span style={{ marginLeft: "0.3rem" }}>Добавить</span>
+            <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>Добавить</span>
             {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
