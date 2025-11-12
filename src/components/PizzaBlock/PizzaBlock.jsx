@@ -1,18 +1,77 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
+import PlusIcon from "../icons/PlusIcon";
+import StarIcon from "../icons/StarIcon";
 
-import plusImg from "../../assets/img/plus.svg";
+const TYPE_NAMES = ["тонкое", "традиционное"];
 
-const TYPE_NAMES = ["тонкое", "традиационное"];
+export default function PizzaBlock({
+  id,
+  imageUrl,
+  title,
+  price,
+  sizes,
+  types,
+  description,
+  rating,
+}) {
+  const dispatch = useDispatch();
 
-export default function PizzaBlock({ imageUrl, title, price, sizes, types }) {
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
+
+  const MessageTemplate = ({ title, size }) => {
+    return (
+      <>
+        Пицца добавлена:
+        <br />
+        {title}, {size} см.
+      </>
+    );
+  };
+
+  const cartItem = useSelector((state) =>
+    state.cart.items.find(
+      (obj) =>
+        obj.id === id &&
+        obj.type === TYPE_NAMES[activeType] &&
+        obj.size === sizes[activeSize]
+    )
+  );
+
+  const addedCount = cartItem ? cartItem.count : 0;
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: TYPE_NAMES[activeType],
+      size: sizes[activeSize],
+    };
+    dispatch(addItem(item));
+    setTimeout(() =>
+      toast.info(
+        <MessageTemplate title={title} size={sizes[activeSize]} />,
+        400
+      )
+    );
+  };
 
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <div className="pizza-block__image-wrapper">
+          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+          <div className="pizza-block__image-rating">
+            <StarIcon /> {rating}
+          </div>
+        </div>
         <h4 className="pizza-block__title">{title}</h4>
+        <p className="pizza-block__description">{description}</p>
 
         <div className="pizza-block__selector">
           <ul>
@@ -41,10 +100,14 @@ export default function PizzaBlock({ imageUrl, title, price, sizes, types }) {
 
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {price} ₽</div>
-          <button className="button button--outline button--add">
-            <img src={plusImg} alt="" style={{ marginRight: "0.5rem" }} />
-            <span>Добавить</span>
-            <i>0</i>
+          <button
+            disabled={addedCount === 9}
+            onClick={onClickAdd}
+            className="button button--outline button--add"
+          >
+            <PlusIcon />
+            <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>Добавить</span>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>

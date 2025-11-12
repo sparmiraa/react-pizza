@@ -2,6 +2,7 @@
 @import "../variables";
 
 .categories {
+  flex-grow: 1;
   ul {
     display: flex;
 
