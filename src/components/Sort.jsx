@@ -1,7 +1,8 @@
-import arrowTopImg from "../assets/img/arrow-top.svg";
+
 import React, {useState} from "react";
 import {useSelector} from 'react-redux'
 import {SORT_OPTIONS} from "../constants/sortOptions";
+import ArrowTopIcon from "./icons/ArrowTopIcon";
 
 export default function Sort({onChangeSort}) {
   const sort = useSelector(state => state.filter.sort)
@@ -31,7 +32,7 @@ export default function Sort({onChangeSort}) {
   return (
     <div ref={sortRef} className="sort">
       <div className="sort__label">
-        <img src={arrowTopImg} alt="" style={{marginRight: "0.5rem"}}/>
+        <ArrowTopIcon style={{marginRight: "0.5rem"}} />
         <b>Сортировка по:</b>
         <span onClick={() => setOpen((prev) => !prev)}>{sort.name}</span>
       </div>
