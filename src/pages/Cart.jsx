@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
-import { clearItems } from "../redux/slices/cartSlice";
+import { clearItems, fetchCart, clearCart } from "../redux/slices/cartSlice";
 import CartEmpty from "../components/CartEmpty";
 import CartIcon from "../components/icons/CartIcon";
 import TrashIcon from "../components/icons/TrashIcon";
@@ -12,11 +12,22 @@ export default function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector((state) => state.cart);
 
-  const onClickClear = () => {
-    if (window.confirm("Очистить корзину?")) {
+  React.useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
+
+  const onClickClear = async () => {
+    if (!window.confirm("Очистить корзину?")) return;
+  
+    try {
+      await dispatch(clearCart()).unwrap(); 
+      
       dispatch(clearItems());
+    } catch (error) {
+      console.error("Ошибка очистки корзины:", error);
     }
   };
+  
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
@@ -40,7 +51,7 @@ export default function Cart() {
 
         <div className="content__items">
           {items.map((item) => (
-            <CartItem key={`${item.id}_${item.type}_${item.size}`} {...item} />
+            <CartItem key={`${item.mockapiId}`} {...item} />
           ))}
         </div>
 

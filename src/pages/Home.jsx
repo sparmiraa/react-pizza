@@ -12,6 +12,7 @@ import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
 import { fetchPizzas } from "../redux/slices/pizzaSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchCart} from "../redux/slices/cartSlice";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
@@ -36,9 +37,11 @@ export default function Home() {
   };
 
   React.useEffect(() => {
-    const getPizzas = async () => {
- 
+    dispatch(fetchCart());
+  }, []);
 
+  React.useEffect(() => {
+    const getPizzas = () => {
       const urlCategoryId = searchParams.get("categoryId");
       const urlSortProperty =
         searchParams.get("sortProperty") || SORT_OPTIONS[0].sortProperty;
@@ -63,6 +66,7 @@ export default function Home() {
     };
     getPizzas();
   }, [searchParams]);
+  
 
   const pizzas = React.useMemo(
     () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),

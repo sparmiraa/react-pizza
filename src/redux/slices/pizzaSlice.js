@@ -6,7 +6,6 @@ export const fetchPizzas = createAsyncThunk("pizza/fetchPizzasStatus", async (pa
     "https://690399efd0f10a340b250ab6.mockapi.io/items",
     { params }
   );
-  console.log(data)
   return data;
 });
 
@@ -19,9 +18,6 @@ const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
   reducers: {
-    setItems(state, action) {
-      state.items = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,5 +37,5 @@ const pizzaSlice = createSlice({
   
 });
 
-export const { setItems } = pizzaSlice.actions;
+export const { } = pizzaSlice.actions;
 export default pizzaSlice.reducer;

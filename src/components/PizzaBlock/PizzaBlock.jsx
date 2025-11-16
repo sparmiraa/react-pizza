@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../redux/slices/cartSlice";
+import { addItem, addItemCart, updateItemCart } from "../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
@@ -17,20 +17,10 @@ export default function PizzaBlock({
   description,
   rating,
 }) {
+  const [isPending, setIsPending] = React.useState(false);
   const dispatch = useDispatch();
-
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
-
-  const MessageTemplate = ({ title, size }) => {
-    return (
-      <>
-        Пицца добавлена:
-        <br />
-        {title}, {size} см.
-      </>
-    );
-  };
 
   const cartItem = useSelector((state) =>
     state.cart.items.find(
@@ -43,7 +33,17 @@ export default function PizzaBlock({
 
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const onClickAdd = () => {
+  const MessageTemplate = ({ title, size }) => (
+    <>
+      Пицца добавлена:
+      <br />
+      {title}, {size} см.
+    </>
+  );
+
+  const onClickAdd = async () => {
+    if (isPending) return;
+    setIsPending(true);
     const item = {
       id,
       title,
@@ -51,16 +51,38 @@ export default function PizzaBlock({
       imageUrl,
       type: TYPE_NAMES[activeType],
       size: sizes[activeSize],
+      count: 1,
     };
-    dispatch(addItem(item));
-    setTimeout(() =>
-      toast.info(
-        <MessageTemplate title={title} size={sizes[activeSize]} />,
-        400
-      )
-    );
+  
+    try {
+      if (cartItem) {
+        const updated = await dispatch(
+          updateItemCart({ id: cartItem.mockapiId, updates: { count: cartItem.count + 1 } })
+        ).unwrap();
+  
+        dispatch(addItem({
+          ...item,
+          count: updated.count,
+          mockapiId: updated.id
+        }));
+      } else {
+        const saved = await dispatch(addItemCart(item)).unwrap();
+  
+        dispatch(addItem({
+          ...item,
+          count: saved.count,
+          mockapiId: saved.id
+        }));
+      }
+  
+      toast.info(<MessageTemplate title={title} size={sizes[activeSize]} />);
+    } catch (error) {
+      toast.error("Не удалось добавить пиццу. Попробуйте снова.");
+    } finally {
+      setIsPending(false);
+    }
   };
-
+  
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
@@ -101,7 +123,7 @@ export default function PizzaBlock({
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {price} ₽</div>
           <button
-            disabled={addedCount === 9}
+            disabled={addedCount === 9 || isPending}
             onClick={onClickAdd}
             className="button button--outline button--add"
           >
