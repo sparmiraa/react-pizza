@@ -1,5 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import {toast} from "react-toastify";
+import React from "react";
+import {MessageTemplate} from "../../components/PizzaBlock/PizzaBlock.jsx";
 
 const CART_API = "https://690399efd0f10a340b250ab6.mockapi.io/cart";
 
@@ -7,7 +10,7 @@ const isEqualItem = (a, b) => a.id === b.id && a.type === b.type && a.size === b
 
 
 export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
-  const { data } = await axios.get(CART_API);
+  const {data} = await axios.get(CART_API);
   return data.map((item) => ({
     mockapiId: item.id,
     id: item.originalId,
@@ -21,14 +24,14 @@ export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
 });
 
 export const addItemCart = createAsyncThunk("cart/addItemCart", async (item) => {
-  const { data } = await axios.post(CART_API, { ...item, originalId: item.id });
+  const {data} = await axios.post(CART_API, {...item, originalId: item.id});
   return data;
 });
 
 export const updateItemCart = createAsyncThunk(
   "cart/updateItemCart",
-  async ({ id, updates }) => {
-    const { data } = await axios.put(`${CART_API}/${id}`, updates);
+  async ({id, updates}) => {
+    const {data} = await axios.put(`${CART_API}/${id}`, updates);
     return data;
   }
 );
@@ -45,31 +48,27 @@ export const clearCart = createAsyncThunk("cart/clearCart", async (_, thunkAPI) 
   return idsToDelete;
 });
 
-
-
 const initialState = {
   items: [],
   totalPrice: 0,
 };
 
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem(state, action) {
-      const item = action.payload;
-      const findItem = state.items.find((i) => isEqualItem(i, item));
-    
-      if (findItem) {
-        findItem.count = item.count;
-      } else {
-        state.items.push({ ...item });
-      }
-    
-      state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
-    }
-    ,
+    // addItem(state, action) {
+    //   const item = action.payload;
+    //   const findItem = state.items.find((i) => isEqualItem(i, item));
+    //
+    //   if (findItem) {
+    //     findItem.count = item.count;
+    //   } else {
+    //     state.items.push({...item});
+    //   }
+    //
+    //   state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
+    // },
 
     addItemCountById(state, action) {
       const item = state.items.find((i) => isEqualItem(i, action.payload));
@@ -104,8 +103,9 @@ const cartSlice = createSlice({
       })
       .addCase(addItemCart.fulfilled, (state, action) => {
         const saved = action.payload;
-        const item = state.items.find((i) => isEqualItem(i, saved));
-        if (item) item.mockapiId = saved.id;
+        const {id, originalId, ...rest} = saved;
+        state.items.push({id: originalId, mockapiId: id, ...rest})
+        state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
       })
       .addCase(updateItemCart.fulfilled, (state, action) => {
         const updated = action.payload;
@@ -124,7 +124,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, addItemCountById, minusItemCountById, removeItemById, clearItems } =
+export const {addItemCountById, minusItemCountById, removeItemById, clearItems} =
   cartSlice.actions;
 
 export default cartSlice.reducer;

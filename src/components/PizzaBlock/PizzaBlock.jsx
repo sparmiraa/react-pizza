@@ -1,23 +1,30 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, addItemCart, updateItemCart } from "../../redux/slices/cartSlice";
-import { toast } from "react-toastify";
+import {useDispatch, useSelector} from "react-redux";
+import {addItemCart, updateItemCart} from "../../redux/slices/cartSlice";
+import {toast} from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 
 const TYPE_NAMES = ["тонкое", "традиционное"];
 
-export default function PizzaBlock({
-  id,
-  imageUrl,
-  title,
-  price,
-  sizes,
-  types,
-  description,
-  rating,
-}) {
-  const [isPending, setIsPending] = React.useState(false);
+export const MessageTemplate = ({title, size}) => (
+  <>
+    Пицца добавлена:
+    <br/>
+    {title}, {size} см.
+  </>
+);
+
+const ErrorMessageTemplate = () => (
+  <>
+    Ошибка во время добавления.
+    <br/>
+    Попробуйте позже.
+  </>
+);
+
+export default function PizzaBlock({item}) {
+  const [isLoading, setIsLoading] = React.useState(false);
   const dispatch = useDispatch();
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
@@ -25,79 +32,63 @@ export default function PizzaBlock({
   const cartItem = useSelector((state) =>
     state.cart.items.find(
       (obj) =>
-        obj.id === id &&
+        obj.id === item.id &&
         obj.type === TYPE_NAMES[activeType] &&
-        obj.size === sizes[activeSize]
+        obj.size === item.sizes[activeSize]
     )
   );
 
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const MessageTemplate = ({ title, size }) => (
-    <>
-      Пицца добавлена:
-      <br />
-      {title}, {size} см.
-    </>
-  );
+  const onClickUpdate = () => {
+    setIsLoading(true);
+
+    const updateDetails = {
+      id: cartItem.mockapiId,
+      updates: {count: cartItem.count + 1}
+    }
+    dispatch(updateItemCart(updateDetails)).then(action => {
+      if (updateItemCart.fulfilled.match(action)) {
+        toast.info(<MessageTemplate title={item.title} size={item.sizes[activeSize]}/>);
+      } else if (updateItemCart.rejected.match(action)) {
+        toast.error(<ErrorMessageTemplate/>);
+      }
+      setIsLoading(false);
+    });
+  }
 
   const onClickAdd = async () => {
-    if (isPending) return;
-    setIsPending(true);
-    const item = {
-      id,
-      title,
-      price,
-      imageUrl,
+    const saveDetails = {
+      ...item,
       type: TYPE_NAMES[activeType],
-      size: sizes[activeSize],
-      count: 1,
+      size: item.sizes[activeSize], count: 1,
     };
-  
-    try {
-      if (cartItem) {
-        const updated = await dispatch(
-          updateItemCart({ id: cartItem.mockapiId, updates: { count: cartItem.count + 1 } })
-        ).unwrap();
-  
-        dispatch(addItem({
-          ...item,
-          count: updated.count,
-          mockapiId: updated.id
-        }));
-      } else {
-        const saved = await dispatch(addItemCart(item)).unwrap();
-  
-        dispatch(addItem({
-          ...item,
-          count: saved.count,
-          mockapiId: saved.id
-        }));
+    setIsLoading(true);
+    dispatch(addItemCart(saveDetails)).then(action => {
+      if (addItemCart.fulfilled.match(action)) {
+        toast.info(<MessageTemplate title={item.title} size={item.sizes[activeSize]}/>);
+      } else if (addItemCart.rejected.match(action)) {
+        toast.error(<ErrorMessageTemplate/>);
       }
-  
-      toast.info(<MessageTemplate title={title} size={sizes[activeSize]} />);
-    } catch (error) {
-      toast.error("Не удалось добавить пиццу. Попробуйте снова.");
-    } finally {
-      setIsPending(false);
-    }
+      setIsLoading(false);
+    });
   };
-  
+
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
         <div className="pizza-block__image-wrapper">
-          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+          <img className="pizza-block__image" src={item.imageUrl} alt="Pizza"/>
           <div className="pizza-block__image-rating">
-            <StarIcon /> {rating}
+            <StarIcon/> {item.rating}
           </div>
         </div>
-        <h4 className="pizza-block__title">{title}</h4>
-        <p className="pizza-block__description">{description}</p>
+        <h4 className="pizza-block__title">{item.title}</h4>
+        <p className="pizza-block__description">{item.description}</p>
 
         <div className="pizza-block__selector">
           <ul>
-            {types.map((typeId) => (
+            {item.types.map((typeId) => (
               <li
                 key={typeId}
                 onClick={() => setActiveType(typeId)}
@@ -108,7 +99,7 @@ export default function PizzaBlock({
             ))}
           </ul>
           <ul>
-            {sizes.map((size, index) => (
+            {item.sizes.map((size, index) => (
               <li
                 key={size}
                 onClick={() => setActiveSize(index)}
@@ -121,14 +112,14 @@ export default function PizzaBlock({
         </div>
 
         <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {price} ₽</div>
+          <div className="pizza-block__price">от {item.price} ₽</div>
           <button
-            disabled={addedCount === 9 || isPending}
-            onClick={onClickAdd}
+            disabled={addedCount === 9 || isLoading}
+            onClick={cartItem ? onClickUpdate : onClickAdd}
             className="button button--outline button--add"
           >
-            <PlusIcon />
-            <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>Добавить</span>
+            <PlusIcon/>
+            <span style={{marginLeft: "0.3rem", marginRight: "0.3rem"}}>Добавить</span>
             {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
