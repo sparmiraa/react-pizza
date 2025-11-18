@@ -1,120 +1,90 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const CART_API = "https://690399efd0f10a340b250ab6.mockapi.io/cart";
 
-const isEqualItem = (a, b) => a.id === b.id && a.type === b.type && a.size === b.size;
+export const getCart = createAsyncThunk(
+  "cart/fetchCart",
+  async () => {
+    const {data} = await axios.get(CART_API);
+    return data.map((cartItem) => ({
+      id: cartItem.id,
+      itemId: cartItem.itemId,
+      title: cartItem.title,
+      price: cartItem.price,
+      type: cartItem.type,
+      size: cartItem.size,
+      count: cartItem.count,
+      imageUrl: cartItem.imageUrl,
+    }));
+  }
+);
 
-
-export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
-  const { data } = await axios.get(CART_API);
-  return data.map((item) => ({
-    mockapiId: item.id,
-    id: item.originalId,
-    title: item.title,
-    price: item.price,
-    type: item.type,
-    size: item.size,
-    count: item.count,
-    imageUrl: item.imageUrl,
-  }));
-});
-
-export const addItemCart = createAsyncThunk("cart/addItemCart", async (item) => {
-  const { data } = await axios.post(CART_API, { ...item, originalId: item.id });
-  return data;
-});
-
-export const updateItemCart = createAsyncThunk(
-  "cart/updateItemCart",
-  async ({ id, updates }) => {
-    const { data } = await axios.put(`${CART_API}/${id}`, updates);
+export const addCartItem = createAsyncThunk(
+  "cart/addItemCart",
+  async (item) => {
+    const {data} = await axios.post(CART_API, {...item, itemId: item.id});
     return data;
   }
 );
 
-export const removeItemCart = createAsyncThunk("cart/removeItemCart", async (id) => {
-  await axios.delete(`${CART_API}/${id}`);
-  return id;
-});
+export const updateCartItemById = createAsyncThunk(
+  "cart/updateCartItemById",
+  async ({id, updates}) => {
+    const {data} = await axios.put(`${CART_API}/${id}`, updates);
+    return data;
+  }
+);
+
+export const removeCartItemById = createAsyncThunk(
+  "cart/removeCartItemById",
+  async (id) => {
+    await axios.delete(`${CART_API}/${id}`);
+    return id;
+  }
+);
 
 export const clearCart = createAsyncThunk("cart/clearCart", async (_, thunkAPI) => {
-  const state = thunkAPI.getState().cart.items;
-  const idsToDelete = state.filter(item => item.mockapiId).map(item => item.mockapiId);
+  const {cart} = thunkAPI.getState();
+  const idsToDelete = cart.items.filter(item => item.id).map(item => item.id);
   await Promise.all(idsToDelete.map(id => axios.delete(`${CART_API}/${id}`)));
   return idsToDelete;
 });
 
-
-
 const initialState = {
+  fetchStatus: "loading",
   items: [],
   totalPrice: 0,
 };
 
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {
-    addItem(state, action) {
-      const item = action.payload;
-      const findItem = state.items.find((i) => isEqualItem(i, item));
-    
-      if (findItem) {
-        findItem.count = item.count;
-      } else {
-        state.items.push({ ...item });
-      }
-    
-      state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
-    }
-    ,
-
-    addItemCountById(state, action) {
-      const item = state.items.find((i) => isEqualItem(i, action.payload));
-      if (!item || item.count >= 9) return;
-      item.count++;
-      state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
-    },
-
-    minusItemCountById(state, action) {
-      const item = state.items.find((i) => isEqualItem(i, action.payload));
-      if (!item || item.count <= 1) return;
-      item.count--;
-      state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
-    },
-
-    removeItemById(state, action) {
-      state.items = state.items.filter((i) => !isEqualItem(i, action.payload));
-      state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
-    },
-
-    clearItems(state) {
-      state.items = [];
-      state.totalPrice = 0;
-    },
-  },
-
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCart.fulfilled, (state, action) => {
+      .addCase(getCart.pending, (state) => {
+        state.items = [];
+        state.fetchStatus = "loading";
+      })
+      .addCase(getCart.fulfilled, (state, action) => {
         state.items = action.payload;
         state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
+        state.fetchStatus = "success";
       })
-      .addCase(addItemCart.fulfilled, (state, action) => {
+      .addCase(addCartItem.fulfilled, (state, action) => {
         const saved = action.payload;
-        const item = state.items.find((i) => isEqualItem(i, saved));
-        if (item) item.mockapiId = saved.id;
+        state.items.push(saved);
+        state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
       })
-      .addCase(updateItemCart.fulfilled, (state, action) => {
+      .addCase(updateCartItemById.fulfilled, (state, action) => {
         const updated = action.payload;
-        const item = state.items.find((i) => i.mockapiId === updated.id);
+        const item = state.items.find((i) => i.id === updated.id);
         if (item) item.count = updated.count;
         state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
       })
-      .addCase(removeItemCart.fulfilled, (state, action) => {
-        state.items = state.items.filter((i) => i.mockapiId !== action.payload);
+      .addCase(removeCartItemById.fulfilled, (state, action) => {
+        state.items = state.items.filter((i) => i.id !== action.payload);
         state.totalPrice = state.items.reduce((sum, i) => sum + i.price * i.count, 0);
       })
       .addCase(clearCart.fulfilled, (state) => {
@@ -123,8 +93,5 @@ const cartSlice = createSlice({
       });
   },
 });
-
-export const { addItem, addItemCountById, minusItemCountById, removeItemById, clearItems } =
-  cartSlice.actions;
 
 export default cartSlice.reducer;

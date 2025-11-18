@@ -1,59 +1,43 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import {
-  addItemCountById,
-  minusItemCountById,
-  removeItemById,
-  removeItemCart,
-  updateItemCart
+  removeCartItemById,
+  updateCartItemById
 } from "../redux/slices/cartSlice";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
 import RemoveIcon from "./icons/RemoveIcon";
 
 export default function CartItem({
-  id,
-  title,
-  price,
-  count,
-  imageUrl,
-  type,
-  size,
-  mockapiId
-}) {
+                                   id,
+
+                                   title,
+                                   price,
+                                   count,
+                                   imageUrl,
+                                   type,
+                                   size
+                                 }) {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItemCountById({ id, type, size }));
-    if (mockapiId) {
-      dispatch(
-        updateItemCart({ id: mockapiId, updates: { count: count + 1 } })
-      );
-    }
+    dispatch(updateCartItemById({id, updates: {count: count + 1}}));
   };
 
   const onClickMinus = () => {
-    dispatch(minusItemCountById({ id, type, size }));
-    if (mockapiId) {
-      dispatch(
-        updateItemCart({ id: mockapiId, updates: { count: count - 1 } })
-      );
-    }
+    dispatch(updateCartItemById({id, updates: {count: count - 1}}));
   };
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите убрать пиццу?")) {
-      dispatch(removeItemById({ id, type, size }));
-      if (mockapiId) {
-        dispatch(removeItemCart(mockapiId));
-      }
+      dispatch(removeCartItemById(id));
     }
   };
 
   return (
     <div className="cart__item">
       <div className="cart__item-img">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <img className="pizza-block__image" src={imageUrl} alt="Pizza"/>
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
@@ -68,7 +52,7 @@ export default function CartItem({
           className="button button--outline button--circle cart__item-count-minus"
           disabled={count === 1}
         >
-          <MinusIcon />
+          <MinusIcon/>
         </button>
         <b>{count}</b>
         <button
@@ -76,7 +60,7 @@ export default function CartItem({
           className="button button--outline button--circle cart__item-count-plus"
           disabled={count === 9}
         >
-          <PlusIcon />
+          <PlusIcon/>
         </button>
       </div>
       <div className="cart__item-price">
@@ -87,7 +71,7 @@ export default function CartItem({
           onClick={onClickRemove}
           className="button button--outline button--circle"
         >
-          <RemoveIcon />
+          <RemoveIcon/>
         </div>
       </div>
     </div>

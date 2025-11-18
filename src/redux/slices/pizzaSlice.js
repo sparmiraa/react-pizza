@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const PIZZA_URL = "https://690399efd0f10a340b250ab6.mockapi.io/items";
+
 export const fetchPizzas = createAsyncThunk("pizza/fetchPizzasStatus", async (params) => {
   const { data } = await axios.get(
-    "https://690399efd0f10a340b250ab6.mockapi.io/items",
+    PIZZA_URL,
     { params }
   );
   return data;
@@ -26,8 +28,8 @@ const pizzaSlice = createSlice({
         state.items = [];
       })
       .addCase(fetchPizzas.fulfilled, (state, action) => {
-        state.items = action.payload;
         state.status = "success";
+        state.items = action.payload;
       })
       .addCase(fetchPizzas.rejected, (state) => {
         state.status = "error";
@@ -37,5 +39,4 @@ const pizzaSlice = createSlice({
   
 });
 
-export const { } = pizzaSlice.actions;
 export default pizzaSlice.reducer;

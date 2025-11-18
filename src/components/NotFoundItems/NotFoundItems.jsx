@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./NotFoundItems.module.scss";
 
-export default function NotFoundItems() {
+export default function NotFoundItems({title}) {
   return (
-      <h2 className={styles.root}>Пицц с таким названием нет😕</h2>
+      <h2 className={styles.root}>{title}</h2>
   );
 }
