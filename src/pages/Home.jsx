@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -7,12 +6,10 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
-import FetchError from '../components/FetchError/FetchError.jsx'
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
 import { fetchPizzas } from "../redux/slices/pizzaSlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart} from "../redux/slices/cartSlice";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
@@ -36,9 +33,6 @@ export default function Home() {
     updateSearchParams({ sortProperty: sortObj.sortProperty, page: 1 });
   };
 
-  React.useEffect(() => {
-    dispatch(fetchCart());
-  }, []);
 
   React.useEffect(() => {
     const getPizzas = () => {
@@ -89,9 +83,9 @@ export default function Home() {
       {status === 'loading' ? (
         <div className="content__items">{skeletons}</div>
       ) : status === 'error' ? (
-        <FetchError />
+        <NotFoundItems title={"К сожалению, не удалось загрузить пиццы. Попробуйте повторить попытку позже.😕"} />
       ) : items.length === 0 ? (
-        <NotFoundItems />
+        <NotFoundItems title={"Пицц с таким названием нет😕"} />
       ) : (
         <div className="content__items">{pizzas}</div>
       )}

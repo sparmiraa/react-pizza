@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const PIZZA_API = "https://690399efd0f10a340b250ab6.mockapi.io/items"
+
 export const fetchPizzas = createAsyncThunk("pizza/fetchPizzasStatus", async (params) => {
   const { data } = await axios.get(
-    "https://690399efd0f10a340b250ab6.mockapi.io/items",
+    PIZZA_API,
     { params }
   );
   return data;
@@ -37,5 +39,5 @@ const pizzaSlice = createSlice({
   
 });
 
-export const { } = pizzaSlice.actions;
+
 export default pizzaSlice.reducer;

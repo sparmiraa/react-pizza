@@ -1,11 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, addItemCart, updateItemCart } from "../../redux/slices/cartSlice";
+import { addCartItem, updateCartItemById } from "../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 
 const TYPE_NAMES = ["тонкое", "традиционное"];
+
+const MessageTemplate = ({ title, size }) => (
+  <>
+    Пицца добавлена:
+    <br />
+    {title}, {size} см.
+  </>
+);
 
 export default function PizzaBlock({
   id,
@@ -17,7 +25,7 @@ export default function PizzaBlock({
   description,
   rating,
 }) {
-  const [isPending, setIsPending] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
   const dispatch = useDispatch();
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
@@ -25,25 +33,15 @@ export default function PizzaBlock({
   const cartItem = useSelector((state) =>
     state.cart.items.find(
       (obj) =>
-        obj.id === id &&
+        obj.itemId === id &&
         obj.type === TYPE_NAMES[activeType] &&
         obj.size === sizes[activeSize]
     )
   );
 
   const addedCount = cartItem ? cartItem.count : 0;
-
-  const MessageTemplate = ({ title, size }) => (
-    <>
-      Пицца добавлена:
-      <br />
-      {title}, {size} см.
-    </>
-  );
-
   const onClickAdd = async () => {
-    if (isPending) return;
-    setIsPending(true);
+    setIsLoading(true);
     const item = {
       id,
       title,
@@ -53,36 +51,27 @@ export default function PizzaBlock({
       size: sizes[activeSize],
       count: 1,
     };
-  
+    const isUpdating = Boolean(cartItem);
     try {
-      if (cartItem) {
-        const updated = await dispatch(
-          updateItemCart({ id: cartItem.mockapiId, updates: { count: cartItem.count + 1 } })
+      if (isUpdating) {
+        await dispatch(
+          updateCartItemById({
+            id: cartItem.id,
+            updates: { count: cartItem.count + 1 },
+          })
         ).unwrap();
-  
-        dispatch(addItem({
-          ...item,
-          count: updated.count,
-          mockapiId: updated.id
-        }));
       } else {
-        const saved = await dispatch(addItemCart(item)).unwrap();
-  
-        dispatch(addItem({
-          ...item,
-          count: saved.count,
-          mockapiId: saved.id
-        }));
+        await dispatch(addCartItem(item)).unwrap();
       }
-  
+
       toast.info(<MessageTemplate title={title} size={sizes[activeSize]} />);
     } catch (error) {
       toast.error("Не удалось добавить пиццу. Попробуйте снова.");
     } finally {
-      setIsPending(false);
+      setIsLoading(false);
     }
   };
-  
+
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
@@ -123,12 +112,14 @@ export default function PizzaBlock({
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">от {price} ₽</div>
           <button
-            disabled={addedCount === 9 || isPending}
+            disabled={addedCount === 9 || isLoading}
             onClick={onClickAdd}
             className="button button--outline button--add"
           >
             <PlusIcon />
-            <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>Добавить</span>
+            <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>
+              Добавить
+            </span>
             {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>

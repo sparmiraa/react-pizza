@@ -1,11 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
-  addItemCountById,
-  minusItemCountById,
-  removeItemById,
-  removeItemCart,
-  updateItemCart
+  removeCartItemById,
+  updateCartItemById,
 } from "../redux/slices/cartSlice";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
@@ -19,34 +16,20 @@ export default function CartItem({
   imageUrl,
   type,
   size,
-  mockapiId
 }) {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItemCountById({ id, type, size }));
-    if (mockapiId) {
-      dispatch(
-        updateItemCart({ id: mockapiId, updates: { count: count + 1 } })
-      );
-    }
+    dispatch(updateCartItemById({ id, updates: { count: count + 1 } }));
   };
 
   const onClickMinus = () => {
-    dispatch(minusItemCountById({ id, type, size }));
-    if (mockapiId) {
-      dispatch(
-        updateItemCart({ id: mockapiId, updates: { count: count - 1 } })
-      );
-    }
+    dispatch(updateCartItemById({ id, updates: { count: count - 1 } }));
   };
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите убрать пиццу?")) {
-      dispatch(removeItemById({ id, type, size }));
-      if (mockapiId) {
-        dispatch(removeItemCart(mockapiId));
-      }
+      dispatch(removeCartItemById(id));
     }
   };
 
