@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartItem, updateCartItemById } from "../../redux/slices/cartSlice";
+import {
+  addCartItem,
+  selectCartItem,
+  updateCartItemById,
+} from "../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
@@ -31,12 +35,11 @@ export default function PizzaBlock({
   const [activeSize, setActiveSize] = React.useState(0);
 
   const cartItem = useSelector((state) =>
-    state.cart.items.find(
-      (obj) =>
-        obj.itemId === id &&
-        obj.type === TYPE_NAMES[activeType] &&
-        obj.size === sizes[activeSize]
-    )
+    selectCartItem(state, {
+      id,
+      type: TYPE_NAMES[activeType],
+      size: sizes[activeSize],
+    })
   );
 
   const addedCount = cartItem ? cartItem.count : 0;

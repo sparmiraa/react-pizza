@@ -8,7 +8,7 @@ import Pagination from "../components/Pagination/Pagination";
 import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
-import { fetchPizzas } from "../redux/slices/pizzaSlice.js";
+import { fetchPizzas, selectPizza } from "../redux/slices/pizzaSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 
 const EMPTY_SKELETONS = [...new Array(4)];
@@ -16,7 +16,7 @@ const PAGE_LIMIT = 4;
 
 export default function Home() {
   const dispatch = useDispatch();
-  const { items, status } = useSelector((state) => state.pizza);
+  const { items, status } = useSelector(selectPizza);
 
   const { updateSearchParams, searchParams, categoryId, currentPage } =
     useFilter();

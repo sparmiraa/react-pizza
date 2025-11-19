@@ -1,14 +1,12 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../redux/slices/filterSlice.js";
+import { selectFilter, setFilters } from "../redux/slices/filterSlice.js";
 import { SORT_OPTIONS } from "../constants/sortOptions.js";
 
 export const useFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { categoryId, currentPage, search } = useSelector(
-    (state) => state.filter
-  );
+  const { categoryId, currentPage, search } = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,3 +53,4 @@ export const useFilter = () => {
     updateSearchParams,
   };
 };
+
