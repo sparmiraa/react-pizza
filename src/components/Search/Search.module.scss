@@ -25,17 +25,17 @@
 }
 
 .clearIcon {
-    width: 24px;
-    height: 24px;
-    opacity: 0.3;
-    position: absolute;
-    right: 12px;
-    top: 12px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+  position: absolute;
+  right: 12px;
+  top: 12px;
 
-    &:hover {
-        opacity: 0.8;
-        cursor: pointer;
-    }
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 1005px) {

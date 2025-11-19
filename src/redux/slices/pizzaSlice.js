@@ -1,26 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const PIZZA_API = "https://690399efd0f10a340b250ab6.mockapi.io/items"
+const PIZZA_API = "https://690399efd0f10a340b250ab6.mockapi.io/items";
 
-export const fetchPizzas = createAsyncThunk("pizza/fetchPizzasStatus", async (params) => {
-  const { data } = await axios.get(
-    PIZZA_API,
-    { params }
-  );
-  return data;
-});
+export const fetchPizzas = createAsyncThunk(
+  "pizza/fetchPizzasStatus",
+  async (params) => {
+    const { data } = await axios.get(PIZZA_API, { params });
+    return data;
+  }
+);
 
 const initialState = {
   items: [],
-  status: 'loading',
+  status: "loading",
 };
 
 const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchPizzas.pending, (state) => {
@@ -36,8 +35,6 @@ const pizzaSlice = createSlice({
         state.items = [];
       });
   },
-  
 });
-
 
 export default pizzaSlice.reducer;

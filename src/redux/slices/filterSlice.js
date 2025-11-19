@@ -1,5 +1,5 @@
-import {createSlice} from "@reduxjs/toolkit"
-import {SORT_OPTIONS} from "../../constants/sortOptions";
+import { createSlice } from "@reduxjs/toolkit";
+import { SORT_OPTIONS } from "../../constants/sortOptions";
 
 const initialState = {
   categoryId: 0,
@@ -8,11 +8,11 @@ const initialState = {
   sort: {
     name: SORT_OPTIONS[0].name,
     sortProperty: SORT_OPTIONS[0].sortProperty,
-  }
-}
+  },
+};
 
 const filterSlice = createSlice({
-  name: 'filter',
+  name: "filter",
   initialState,
   reducers: {
     setFilters(state, action) {
@@ -22,8 +22,8 @@ const filterSlice = createSlice({
       state.categoryId = Number(categoryId);
       if (search !== undefined) state.search = search;
     },
-  }
-})
+  },
+});
 
-export const {setFilters} = filterSlice.actions;
-export default filterSlice.reducer
+export const { setFilters } = filterSlice.actions;
+export default filterSlice.reducer;

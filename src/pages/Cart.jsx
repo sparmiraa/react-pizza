@@ -1,8 +1,8 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
-import {clearCart} from "../redux/slices/cartSlice";
+import { clearCart } from "../redux/slices/cartSlice";
 import CartEmpty from "../components/CartEmpty";
 import CartIcon from "../components/icons/CartIcon";
 import TrashIcon from "../components/icons/TrashIcon";
@@ -10,7 +10,7 @@ import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const {totalPrice, items, fetchStatus} = useSelector((state) => state.cart);
+  const { totalPrice, items, fetchStatus } = useSelector((state) => state.cart);
 
   const onClickClear = () => {
     if (!window.confirm("Очистить корзину?")) return;
@@ -20,11 +20,11 @@ export default function Cart() {
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
   if (fetchStatus === "loading") {
-    return <></>
+    return <></>;
   }
 
   if (!items.length) {
-    return <CartEmpty/>;
+    return <CartEmpty />;
   }
 
   return (
@@ -32,11 +32,11 @@ export default function Cart() {
       <div className="cart">
         <div className="cart__top">
           <h2 className="content__title">
-            <CartIcon/>
+            <CartIcon />
             Корзина
           </h2>
           <div onClick={onClickClear} className="cart__clear">
-            <TrashIcon/>
+            <TrashIcon />
             <span>Очистить корзину</span>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function Cart() {
               to="/"
               className="button button--outline button--add go-back-btn"
             >
-              <ArrowLeftIcon/>
+              <ArrowLeftIcon />
               <span>Вернуться назад</span>
             </Link>
             <div className="button pay-btn">

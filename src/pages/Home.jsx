@@ -16,7 +16,7 @@ const PAGE_LIMIT = 4;
 
 export default function Home() {
   const dispatch = useDispatch();
-  const {items, status} = useSelector((state) => state.pizza);
+  const { items, status } = useSelector((state) => state.pizza);
 
   const { updateSearchParams, searchParams, categoryId, currentPage } =
     useFilter();
@@ -32,7 +32,6 @@ export default function Home() {
   const onChangeSort = (sortObj) => {
     updateSearchParams({ sortProperty: sortObj.sortProperty, page: 1 });
   };
-
 
   React.useEffect(() => {
     const getPizzas = () => {
@@ -54,13 +53,11 @@ export default function Home() {
           Number(urlCategoryId) > 0 && { category: urlCategoryId }),
         ...(urlSearch && { title: urlSearch }),
       };
-    
-        dispatch(fetchPizzas(params));
 
+      dispatch(fetchPizzas(params));
     };
     getPizzas();
-  }, [searchParams]);
-  
+  }, [dispatch, searchParams]);
 
   const pizzas = React.useMemo(
     () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),
@@ -80,10 +77,14 @@ export default function Home() {
 
       <h2 className="content__title">Все пиццы</h2>
 
-      {status === 'loading' ? (
+      {status === "loading" ? (
         <div className="content__items">{skeletons}</div>
-      ) : status === 'error' ? (
-        <NotFoundItems title={"К сожалению, не удалось загрузить пиццы. Попробуйте повторить попытку позже.😕"} />
+      ) : status === "error" ? (
+        <NotFoundItems
+          title={
+            "К сожалению, не удалось загрузить пиццы. Попробуйте повторить попытку позже.😕"
+          }
+        />
       ) : items.length === 0 ? (
         <NotFoundItems title={"Пицц с таким названием нет😕"} />
       ) : (
