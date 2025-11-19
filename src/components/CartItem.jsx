@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
-  addItemCountById,
-  minusItemCountById,
-  removeItemById,
+  removeCartItemById,
+  updateCartItemById,
 } from "../redux/slices/cartSlice";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
@@ -21,16 +20,16 @@ export default function CartItem({
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItemCountById({ id, type, size }));
+    dispatch(updateCartItemById({ id, updates: { count: count + 1 } }));
   };
 
   const onClickMinus = () => {
-    dispatch(minusItemCountById({ id, type, size }));
+    dispatch(updateCartItemById({ id, updates: { count: count - 1 } }));
   };
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите убрать пиццу?")) {
-      dispatch(removeItemById({ id, type, size }));
+      dispatch(removeCartItemById(id));
     }
   };
 

@@ -6,7 +6,7 @@ export default function NotFoundBlock() {
     <div className={styles.root}>
       <h1>Ничего не найдено</h1>
       <p className={styles.description}>
-        К сожалению данная страница отсутсвует в нашем магазине
+        К сожалению данная страница отсутствует в нашем магазине
       </p>
     </div>
   );

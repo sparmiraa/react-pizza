@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
-import { clearItems } from "../redux/slices/cartSlice";
+import { clearCart } from "../redux/slices/cartSlice";
 import CartEmpty from "../components/CartEmpty";
 import CartIcon from "../components/icons/CartIcon";
 import TrashIcon from "../components/icons/TrashIcon";
@@ -10,15 +10,18 @@ import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const { totalPrice, items } = useSelector((state) => state.cart);
+  const { totalPrice, items, fetchStatus } = useSelector((state) => state.cart);
 
   const onClickClear = () => {
-    if (window.confirm("Очистить корзину?")) {
-      dispatch(clearItems());
-    }
+    if (!window.confirm("Очистить корзину?")) return;
+    dispatch(clearCart());
   };
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  if (fetchStatus === "loading") {
+    return <></>;
+  }
 
   if (!items.length) {
     return <CartEmpty />;
@@ -40,7 +43,7 @@ export default function Cart() {
 
         <div className="content__items">
           {items.map((item) => (
-            <CartItem key={`${item.id}_${item.type}_${item.size}`} {...item} />
+            <CartItem key={`${item.id}`} {...item} />
           ))}
         </div>
 

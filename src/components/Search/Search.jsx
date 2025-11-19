@@ -1,4 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import debounce from "lodash.debounce";
 
 import styles from "./Search.module.scss";
@@ -7,20 +12,20 @@ import RemoveIcon from "../icons/RemoveIcon.jsx";
 import SearchIcon from "../icons/SearchIcon.jsx";
 
 export default function Search() {
-  const [value, setValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const inputRef = useRef(null);
   const { searchParams, updateSearchParams } = useFilter();
 
   const onClickClear = () => {
-    setValue("");
+    setSearchValue("");
     updateSearchParams({ search: "" });
     inputRef.current.focus();
   };
 
   useEffect(() => {
     const newSearch = searchParams.get("search") || "";
-    setValue(newSearch);
+    setSearchValue(newSearch);
   }, [searchParams]);
 
   const updateSearchValue = useCallback(
@@ -31,7 +36,7 @@ export default function Search() {
   );
 
   const onChangeInput = (event) => {
-    setValue(event.target.value);
+    setSearchValue(event.target.value);
     updateSearchValue(event.target.value);
   };
 
@@ -40,13 +45,13 @@ export default function Search() {
       <SearchIcon className={styles.icon} />
       <input
         ref={inputRef}
-        value={value}
+        value={searchValue}
         onChange={onChangeInput}
         className={styles.input}
         placeholder="Поиск пиццы ..."
       />
 
-      {value && (
+      {searchValue && (
         <RemoveIcon
           onClick={() => onClickClear()}
           className={styles.clearIcon}
