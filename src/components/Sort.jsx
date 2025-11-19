@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import ArrowTopIcon from "./icons/ArrowTopIcon";
+import { selectSort } from "../redux/slices/filterSlice";
 
 export default function Sort({ onChangeSort }) {
-  const sort = useSelector((state) => state.filter.sort);
+  const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
   const sortRef = React.useRef(null);
 

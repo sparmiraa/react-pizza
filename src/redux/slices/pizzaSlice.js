@@ -5,11 +5,19 @@ const PIZZA_API = "https://690399efd0f10a340b250ab6.mockapi.io/items";
 
 export const fetchPizzas = createAsyncThunk(
   "pizza/fetchPizzasStatus",
-  async (params) => {
-    const { data } = await axios.get(PIZZA_API, { params });
-    return data;
+  async (params, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(PIZZA_API, { params });
+      return data;
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        return [];
+      }
+      return rejectWithValue();
+    }
   }
 );
+
 
 const initialState = {
   items: [],
@@ -36,5 +44,7 @@ const pizzaSlice = createSlice({
       });
   },
 });
+
+export const selectPizza = (state) => state.pizza;
 
 export default pizzaSlice.reducer;
