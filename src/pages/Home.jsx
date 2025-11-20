@@ -10,6 +10,7 @@ import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
 import { fetchPizzas, selectPizza } from "../redux/slices/pizzaSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
