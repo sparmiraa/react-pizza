@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { API_PIZZA } from "../../api";
 
-const PIZZA_API = "https://690399efd0f10a340b250ab6.mockapi.io/items";
 
 export const fetchPizzas = createAsyncThunk(
   "pizza/fetchPizzasStatus",
   async (params, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(PIZZA_API, { params });
+      const { data } = await axios.get(API_PIZZA, { params });
       return data;
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -15,7 +15,7 @@ export const fetchPizzas = createAsyncThunk(
       }
       return rejectWithValue();
     }
-  }
+  } 
 );
 
 

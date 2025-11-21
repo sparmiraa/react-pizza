@@ -79,12 +79,14 @@ export default function PizzaBlock({
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <div className="pizza-block__image-wrapper">
-          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-          <div className="pizza-block__image-rating">
-            <StarIcon /> {rating}
+        <Link to={`/pizza/${id}`}>
+          <div className="pizza-block__image-wrapper">
+            <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+            <div className="pizza-block__image-rating">
+              <StarIcon /> {rating}
+            </div>
           </div>
-        </div>
+        </Link>
         <Link to={`/pizza/${id}`}>
           <h4 className="pizza-block__title">{title}</h4>
         </Link>

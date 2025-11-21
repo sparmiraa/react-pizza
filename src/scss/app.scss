@@ -383,3 +383,13 @@ body {
     }
   }
 }
+
+.full-pizza {
+  &__loading {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+}
