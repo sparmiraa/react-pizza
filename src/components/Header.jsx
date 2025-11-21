@@ -26,12 +26,14 @@ export default function Header() {
         </Link>
         {location.pathname !== "/cart" && <Search />}
         <div className="header__cart">
-          <Link to="/cart" className="button button--cart">
-            <span>{totalPrice} ₽</span>
-            <div className="button__delimiter"></div>
-            <CartIcon style={{ marginRight: "0.5rem" }} />
-            <span>{totalCount}</span>
-          </Link>
+          {location.pathname !== "/cart" && (
+            <Link to="/cart" className="button button--cart">
+              <span>{totalPrice} ₽</span>
+              <div className="button__delimiter"></div>
+              <CartIcon style={{ marginRight: "0.5rem" }} />
+              <span>{totalCount}</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>
