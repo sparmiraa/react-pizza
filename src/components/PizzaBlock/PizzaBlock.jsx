@@ -81,7 +81,7 @@ export default function PizzaBlock({
       <div className="pizza-block">
         <Link to={`/pizza/${id}`}>
           <div className="pizza-block__image-wrapper">
-            <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+            <img className="pizza-block__image" src={imageUrl} alt="Pizza" draggable={false} />
             <div className="pizza-block__image-rating">
               <StarIcon /> {rating}
             </div>
