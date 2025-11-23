@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-const CART_API = "https://690399efd0f10a340b250ab6.mockapi.io/cart";
+import { API_CART } from "../../api";
+ 
 
 const calcTotal = (items) =>
   items.reduce((sum, i) => sum + i.price * i.count, 0);
 
 export const getCart = createAsyncThunk("cart/fetchCart", async () => {
-  const { data } = await axios.get(CART_API);
+  const { data } = await axios.get(API_CART);
   return data.map((cartItem) => ({
     id: cartItem.id,
     itemId: cartItem.itemId,
@@ -23,7 +23,7 @@ export const getCart = createAsyncThunk("cart/fetchCart", async () => {
 export const addCartItem = createAsyncThunk(
   "cart/addItemCart",
   async (item) => {
-    const { data } = await axios.post(CART_API, { ...item, itemId: item.id });
+    const { data } = await axios.post(API_CART, { ...item, itemId: item.id });
     return data;
   }
 );
@@ -31,7 +31,7 @@ export const addCartItem = createAsyncThunk(
 export const updateCartItemById = createAsyncThunk(
   "cart/updateCartItemById",
   async ({ id, updates }) => {
-    const { data } = await axios.put(`${CART_API}/${id}`, updates);
+    const { data } = await axios.put(`${API_CART}/${id}`, updates);
     return data;
   }
 );
@@ -39,7 +39,7 @@ export const updateCartItemById = createAsyncThunk(
 export const removeCartItemById = createAsyncThunk(
   "cart/removeCartItemById",
   async (id) => {
-    await axios.delete(`${CART_API}/${id}`);
+    await axios.delete(`${API_CART}/${id}`);
     return id;
   }
 );
@@ -52,7 +52,7 @@ export const clearCart = createAsyncThunk(
       .filter((item) => item.id)
       .map((item) => item.id);
     await Promise.all(
-      idsToDelete.map((id) => axios.delete(`${CART_API}/${id}`))
+      idsToDelete.map((id) => axios.delete(`${API_CART}/${id}`))
     );
     return idsToDelete;
   }

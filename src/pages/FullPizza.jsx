@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { API_PIZZA } from "../api";
 
 export default function FullPizza() {
   const [pizza, setPizza] = React.useState();
@@ -11,19 +13,23 @@ export default function FullPizza() {
     async function getPizza() {
       try {
         const { data } = await axios.get(
-          "https://690399efd0f10a340b250ab6.mockapi.io/items/" + id
+          `${API_PIZZA}/` + id
         );
         setPizza(data);
       } catch (error) {
-        alert("Такой пиццы нету");
-        navigate("/");
+        if (error.response && error.response.status === 404) {
+          toast.error("Такой пиццы нет 😕");
+          navigate("/")
+        } else {
+          toast.error("Ошибка сервера. Попробуйте позже.");
+        }
       }
     }
     getPizza();
   }, []);
 
   if (!pizza) {
-    return "Загрузка...";
+    return <div className="container full-pizza__loading">Загрузка...</div>;
   }
 
   return (
