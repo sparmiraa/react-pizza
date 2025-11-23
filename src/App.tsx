@@ -1,12 +1,11 @@
 import "./scss/app.scss";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
-import FullPizza from "./pages/FullPizza.jsx";
+import FullPizza from "./pages/FullPizza";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import { Routes, Route } from "react-router-dom";
 
-import React from "react";
 
 import MainLayout from "./layouts/MainLayout.jsx";
 
