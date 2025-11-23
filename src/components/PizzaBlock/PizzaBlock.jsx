@@ -8,6 +8,7 @@ import {
 import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
+import { Link } from "react-router-dom";
 
 const TYPE_NAMES = ["тонкое", "традиционное"];
 
@@ -78,13 +79,18 @@ export default function PizzaBlock({
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <div className="pizza-block__image-wrapper">
-          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-          <div className="pizza-block__image-rating">
-            <StarIcon /> {rating}
+        <Link to={`/pizza/${id}`}>
+          <div className="pizza-block__image-wrapper">
+            <img className="pizza-block__image" src={imageUrl} alt="Pizza" draggable={false} />
+            <div className="pizza-block__image-rating">
+              <StarIcon /> {rating}
+            </div>
           </div>
-        </div>
-        <h4 className="pizza-block__title">{title}</h4>
+        </Link>
+        <Link to={`/pizza/${id}`}>
+          <h4 className="pizza-block__title">{title}</h4>
+        </Link>
+
         <p className="pizza-block__description">{description}</p>
 
         <div className="pizza-block__selector">

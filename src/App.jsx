@@ -1,32 +1,26 @@
 import "./scss/app.scss";
-import Header from "./components/Header";
+import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
+import FullPizza from "./pages/FullPizza.jsx";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 import React from "react";
-import { getCart } from "./redux/slices/cartSlice.js";
-import { useDispatch } from "react-redux";
+
+import MainLayout from "./layouts/MainLayout.jsx";
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getCart());
-  }, [dispatch]);
-
   return (
-    <div className="wrapper">
-      <Header />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
+    <>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="pizza/:id" element={<FullPizza />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
 
       <ToastContainer
         position="top-right"
@@ -41,6 +35,6 @@ export default function App() {
         toastClassName="toast-item"
         className="toast-container"
       />
-    </div>
+    </>
   );
 }
