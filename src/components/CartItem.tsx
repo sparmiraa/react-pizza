@@ -1,5 +1,4 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/store";
 import {
   removeCartItemById,
   updateCartItemById,
@@ -7,6 +6,16 @@ import {
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
 import RemoveIcon from "./icons/RemoveIcon";
+
+type CartItemProps = {
+  id: string;
+  title: string;
+  price: number;
+  count: number;
+  imageUrl: string;
+  type: string;
+  size: number;
+};
 
 export default function CartItem({
   id,
@@ -16,20 +25,20 @@ export default function CartItem({
   imageUrl,
   type,
   size,
-}) {
-  const dispatch = useDispatch();
+}: CartItemProps) {
+  const dispatch = useAppDispatch();
 
   const onClickPlus = () => {
-    dispatch(updateCartItemById({ id, updates: { count: count + 1 } }));
+    dispatch(updateCartItemById({ id, updates: { count: count + 1 } } as any));
   };
 
   const onClickMinus = () => {
-    dispatch(updateCartItemById({ id, updates: { count: count - 1 } }));
+    dispatch(updateCartItemById({ id, updates: { count: count - 1 } } as any));
   };
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите убрать пиццу?")) {
-      dispatch(removeCartItemById(id));
+      dispatch(removeCartItemById(id as any));
     }
   };
 
@@ -66,11 +75,11 @@ export default function CartItem({
         <b>{price * count} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <div
-          onClick={onClickRemove}
-          className="button button--outline button--circle"
-        >
-          <RemoveIcon />
+        <div>
+          <RemoveIcon
+            onClick={onClickRemove}
+            className="button button--outline button--circle"
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
-import React from "react";
+type CategoriesProps = {
+  value: number;
+  onChangeCategory: any;
+};
 
 const CATEGORIES = [
   "Все",
@@ -9,7 +12,10 @@ const CATEGORIES = [
   "Закрытые",
 ];
 
-export default function Categories({ value, onChangeCategory }) {
+export default function Categories({
+  value,
+  onChangeCategory,
+}: CategoriesProps) {
   return (
     <div className="categories">
       <ul>

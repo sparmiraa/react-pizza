@@ -3,19 +3,20 @@ import { useSelector } from "react-redux";
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import ArrowTopIcon from "./icons/ArrowTopIcon";
 import { selectSort } from "../redux/slices/filterSlice";
+import { SortOptions } from "../types/sortOptions";
 
-export default function Sort({ onChangeSort }) {
+export default function Sort({ onChangeSort }: any) {
   const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
-  const sortRef = React.useRef(null);
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
-  const onClickListItem = (item) => {
+  const onClickListItem = (item: SortOptions) => {
     onChangeSort(item);
     setOpen(false);
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (sortRef.current && !sortRef.current.contains(event.target)) {
         setOpen(false);
       }
