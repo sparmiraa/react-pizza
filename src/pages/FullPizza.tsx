@@ -3,21 +3,17 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_PIZZA } from "../api";
+import { FullPizzaDto } from "../types/FullPizzaDto";
 
 export default function FullPizza() {
-  const [pizza, setPizza] = React.useState<{
-    imageUrl: string;
-    title: string;
-    description: string;
-    price: number;
-  }>();
+  const [pizza, setPizza] = React.useState<FullPizzaDto | null>();
   const { id } = useParams();
   const navigate = useNavigate();
 
   React.useEffect(() => {
     async function getPizza() {
       try {
-        const { data } = await axios.get(`${API_PIZZA}/` + id);
+        const { data } = await axios.get<FullPizzaDto>(`${API_PIZZA}/` + id);
         setPizza(data);
       } catch (error: unknown) {
         if (axios.isAxiosError(error)) {
