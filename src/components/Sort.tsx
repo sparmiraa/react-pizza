@@ -5,7 +5,11 @@ import ArrowTopIcon from "./icons/ArrowTopIcon";
 import { selectSort } from "../redux/slices/filterSlice";
 import { SortOptions } from "../types/sortOptions";
 
-export default function Sort({ onChangeSort }: any) {
+type SortProps = {
+  onChangeSort: (sort: SortOptions) => void
+}
+
+export default function Sort({ onChangeSort }: SortProps) {
   const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
   const sortRef = React.useRef<HTMLDivElement>(null);
@@ -16,8 +20,8 @@ export default function Sort({ onChangeSort }: any) {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (sortRef.current && !sortRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };

@@ -11,6 +11,7 @@ import { useFilter } from "../hook/useFilter.js";
 import { fetchPizzas, selectPizza } from "../redux/slices/pizzaSlice.js";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/store";
+import { SortOptions } from "../types/sortOptions";
 
 
 const EMPTY_SKELETONS = [...new Array(4)];
@@ -31,7 +32,7 @@ export default function Home() {
     updateSearchParams({ page: pageNumber });
   };
 
-  const onChangeSort = (sortObj: any) => {
+  const onChangeSort = (sortObj: SortOptions) => {
     updateSearchParams({ sortProperty: sortObj.sortProperty, page: 1 });
   };
 
