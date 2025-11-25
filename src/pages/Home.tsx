@@ -9,27 +9,29 @@ import NotFoundItems from "../components/NotFoundItems/NotFoundItems";
 import { SORT_OPTIONS } from "../constants/sortOptions";
 import { useFilter } from "../hook/useFilter.js";
 import { fetchPizzas, selectPizza } from "../redux/slices/pizzaSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../redux/store";
+
 
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { items, status } = useSelector(selectPizza);
 
   const { updateSearchParams, searchParams, categoryId, currentPage } =
     useFilter();
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     updateSearchParams({ categoryId: id, page: 1, search: "" });
   };
 
-  const onChangePage = (pageNumber) => {
+  const onChangePage = (pageNumber: number) => {
     updateSearchParams({ page: pageNumber });
   };
 
-  const onChangeSort = (sortObj) => {
+  const onChangeSort = (sortObj: any) => {
     updateSearchParams({ sortProperty: sortObj.sortProperty, page: 1 });
   };
 
@@ -54,13 +56,13 @@ export default function Home() {
         ...(urlSearch && { title: urlSearch }),
       };
 
-      dispatch(fetchPizzas(params));
+      dispatch(fetchPizzas(params as any));
     };
     getPizzas();
   }, [dispatch, searchParams]);
 
   const pizzas = React.useMemo(
-    () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),
+    () => items.map((obj: any) => <PizzaBlock {...obj} key={obj.id} />),
     [items]
   );
   const skeletons = React.useMemo(

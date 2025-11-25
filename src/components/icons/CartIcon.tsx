@@ -1,4 +1,7 @@
-export default function CartIcon() {
+import { SVGProps } from "react";
+
+
+export default function CartIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="18"

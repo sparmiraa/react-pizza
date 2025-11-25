@@ -1,4 +1,6 @@
-export default function ArrowTopIcon() {
+import { SVGProps } from "react";
+
+export default function ArrowTopIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="10"

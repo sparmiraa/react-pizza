@@ -1,16 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { clearCart, selectCart } from "../redux/slices/cartSlice";
 import CartEmpty from "../components/CartEmpty";
 import CartIcon from "../components/icons/CartIcon";
 import TrashIcon from "../components/icons/TrashIcon";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
+import { useAppDispatch } from "../redux/store";
 
 
 export default function Cart() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { totalPrice, items, fetchStatus } = useSelector(selectCart);
 
   const onClickClear = () => {
@@ -18,7 +18,7 @@ export default function Cart() {
     dispatch(clearCart());
   };
 
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   if (fetchStatus === "loading") {
     return <></>;
@@ -43,7 +43,7 @@ export default function Cart() {
         </div>
 
         <div className="content__items">
-          {items.map((item) => (
+          {items.map((item: any) => (
             <CartItem key={`${item.id}`} {...item} />
           ))}
         </div>

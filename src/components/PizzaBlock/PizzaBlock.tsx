@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   addCartItem,
   selectCartItem,
@@ -9,16 +9,33 @@ import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../redux/store";
 
 const TYPE_NAMES = ["тонкое", "традиционное"];
 
-const MessageTemplate = ({ title, size }) => (
+const MessageTemplate = ({ title, size }: MessageTemplateProps) => (
   <>
     Пицца добавлена:
     <br />
     {title}, {size} см.
   </>
 );
+
+type PizzaBlockProps = {
+  id: string,
+  imageUrl: string,
+  title: string,
+  price: number,
+  sizes: number[],
+  types: number[],
+  description: string,
+  rating: number,
+}
+
+type MessageTemplateProps = {
+  title: string;
+  size: number;
+};
 
 export default function PizzaBlock({
   id,
@@ -29,9 +46,9 @@ export default function PizzaBlock({
   types,
   description,
   rating,
-}) {
+}:PizzaBlockProps ) {
   const [isLoading, setIsLoading] = React.useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
 
@@ -62,10 +79,10 @@ export default function PizzaBlock({
           updateCartItemById({
             id: cartItem.id,
             updates: { count: cartItem.count + 1 },
-          })
+          } as any)
         ).unwrap();
       } else {
-        await dispatch(addCartItem(item)).unwrap();
+        await dispatch(addCartItem(item as any)).unwrap();
       }
 
       toast.info(<MessageTemplate title={title} size={sizes[activeSize]} />);

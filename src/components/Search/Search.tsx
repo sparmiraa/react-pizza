@@ -14,13 +14,13 @@ import SearchIcon from "../icons/SearchIcon.jsx";
 export default function Search() {
   const [searchValue, setSearchValue] = useState("");
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { searchParams, updateSearchParams } = useFilter();
 
   const onClickClear = () => {
     setSearchValue("");
     updateSearchParams({ search: "" });
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Search() {
     [searchParams]
   );
 
-  const onChangeInput = (event) => {
+  const onChangeInput = (event: any) => {
     setSearchValue(event.target.value);
     updateSearchValue(event.target.value);
   };
