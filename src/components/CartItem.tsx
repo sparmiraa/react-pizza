@@ -6,6 +6,7 @@ import {
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
 import RemoveIcon from "./icons/RemoveIcon";
+import { TYPE_NAMES } from "../constants/pizzaTypes";
 
 type CartItemProps = {
   id: string;
@@ -13,7 +14,7 @@ type CartItemProps = {
   price: number;
   count: number;
   imageUrl: string;
-  type: string;
+  type: number;
   size: number;
 };
 
@@ -29,16 +30,16 @@ export default function CartItem({
   const dispatch = useAppDispatch();
 
   const onClickPlus = () => {
-    dispatch(updateCartItemById({ id, updates: { count: count + 1 } } as any));
+    dispatch(updateCartItemById({ id, updates: { count: count + 1 } }));
   };
 
   const onClickMinus = () => {
-    dispatch(updateCartItemById({ id, updates: { count: count - 1 } } as any));
+    dispatch(updateCartItemById({ id, updates: { count: count - 1 } }));
   };
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите убрать пиццу?")) {
-      dispatch(removeCartItemById(id as any));
+      dispatch(removeCartItemById(id));
     }
   };
 
@@ -50,7 +51,7 @@ export default function CartItem({
       <div className="cart__item-info">
         <h3>{title}</h3>
         <p>
-          {type} тесто, {size} см.
+        {TYPE_NAMES[type]} тесто, {size} см.
         </p>
         <p>{price} ₽</p>
       </div>

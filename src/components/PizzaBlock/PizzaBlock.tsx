@@ -9,9 +9,10 @@ import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
+import { CartItemType } from "../../types/cartItemType";
+import { TYPE_NAMES } from "../../constants/pizzaTypes";
 
-const TYPE_NAMES = ["тонкое", "традиционное"];
 
 const MessageTemplate = ({ title, size }: MessageTemplateProps) => (
   <>
@@ -22,15 +23,15 @@ const MessageTemplate = ({ title, size }: MessageTemplateProps) => (
 );
 
 type PizzaBlockProps = {
-  id: string,
-  imageUrl: string,
-  title: string,
-  price: number,
-  sizes: number[],
-  types: number[],
-  description: string,
-  rating: number,
-}
+  id: string;
+  imageUrl: string;
+  title: string;
+  price: number;
+  sizes: number[];
+  types: number[];
+  description: string;
+  rating: number;
+};
 
 type MessageTemplateProps = {
   title: string;
@@ -45,44 +46,44 @@ export default function PizzaBlock({
   sizes,
   types,
   description,
-  rating,
-}:PizzaBlockProps ) {
+  rating,   
+}: PizzaBlockProps) {
   const [isLoading, setIsLoading] = React.useState(false);
   const dispatch = useAppDispatch();
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
 
-  const cartItem = useSelector((state) =>
+  const cartItem = useSelector((state: RootState) =>
     selectCartItem(state, {
-      id,
-      type: TYPE_NAMES[activeType],
+      id: Number(id),
+      type: activeType,
       size: sizes[activeSize],
     })
   );
 
-  const addedCount = cartItem ? cartItem.count : 0;
+  const addedCount = cartItem?.count ?? 0;
   const onClickAdd = async () => {
     setIsLoading(true);
-    const item = {
+    const item: CartItemType = {
       id,
       title,
       price,
       imageUrl,
-      type: TYPE_NAMES[activeType],
+      type: activeType,
       size: sizes[activeSize],
       count: 1,
     };
     const isUpdating = Boolean(cartItem);
     try {
-      if (isUpdating) {
+      if (isUpdating && cartItem) {
         await dispatch(
           updateCartItemById({
             id: cartItem.id,
             updates: { count: cartItem.count + 1 },
-          } as any)
+          })
         ).unwrap();
       } else {
-        await dispatch(addCartItem(item as any)).unwrap();
+        await dispatch(addCartItem(item)).unwrap();
       }
 
       toast.info(<MessageTemplate title={title} size={sizes[activeSize]} />);
@@ -98,7 +99,12 @@ export default function PizzaBlock({
       <div className="pizza-block">
         <Link to={`/pizza/${id}`}>
           <div className="pizza-block__image-wrapper">
-            <img className="pizza-block__image" src={imageUrl} alt="Pizza" draggable={false} />
+            <img
+              className="pizza-block__image"
+              src={imageUrl}
+              alt="Pizza"
+              draggable={false}
+            />
             <div className="pizza-block__image-rating">
               <StarIcon /> {rating}
             </div>

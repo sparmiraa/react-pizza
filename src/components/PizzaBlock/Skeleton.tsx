@@ -1,7 +1,6 @@
-import React from "react";
-import ContentLoader from "react-content-loader";
+import ContentLoader, { IContentLoaderProps } from "react-content-loader";
 
-const MyLoader = (props) => (
+const MyLoader = (props: IContentLoaderProps) => (
   <ContentLoader
     className="pizza-block"
     speed={2}
