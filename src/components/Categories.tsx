@@ -1,6 +1,6 @@
 type CategoriesProps = {
   value: number;
-  onChangeCategory: (i: number) => void;
+  onChangeCategory: (index: number) => void;
 };
 
 const CATEGORIES = [

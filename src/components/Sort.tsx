@@ -6,8 +6,8 @@ import { selectSort } from "../redux/slices/filterSlice";
 import { SortOptions } from "../types/sortOptions";
 
 type SortProps = {
-  onChangeSort: (sort: SortOptions) => void
-}
+  onChangeSort: (sort: SortOptions) => void;
+};
 
 export default function Sort({ onChangeSort }: SortProps) {
   const sort = useSelector(selectSort);

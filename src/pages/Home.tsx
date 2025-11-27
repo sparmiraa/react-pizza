@@ -57,13 +57,13 @@ export default function Home() {
         ...(urlSearch && { title: urlSearch }),
       };
 
-      dispatch(fetchPizzas(params as any));
+      dispatch(fetchPizzas(params));
     };
     getPizzas();
   }, [dispatch, searchParams]);
 
   const pizzas = React.useMemo(
-    () => items.map((obj: any) => <PizzaBlock {...obj} key={obj.id} />),
+    () => items.map((obj) => <PizzaBlock {...obj} key={obj.id} />),
     [items]
   );
   const skeletons = React.useMemo(
