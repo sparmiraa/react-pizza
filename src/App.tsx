@@ -7,7 +7,7 @@ import Cart from "./pages/Cart";
 import { Routes, Route } from "react-router-dom";
 
 
-import MainLayout from "./layouts/MainLayout.js";
+import MainLayout from "./layouts/MainLayout";
 
 export default function App() {
   return (
