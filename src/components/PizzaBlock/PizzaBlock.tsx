@@ -13,7 +13,6 @@ import { RootState, useAppDispatch } from "../../redux/store";
 import { CartItemType } from "../../types/cartItemType";
 import { TYPE_NAMES } from "../../constants/pizzaTypes";
 
-
 const MessageTemplate = ({ title, size }: MessageTemplateProps) => (
   <>
     Пицца добавлена:
@@ -46,7 +45,7 @@ export default function PizzaBlock({
   sizes,
   types,
   description,
-  rating,   
+  rating,
 }: PizzaBlockProps) {
   const [isLoading, setIsLoading] = React.useState(false);
   const dispatch = useAppDispatch();
@@ -73,9 +72,8 @@ export default function PizzaBlock({
       size: sizes[activeSize],
       count: 1,
     };
-    const isUpdating = Boolean(cartItem);
     try {
-      if (isUpdating && cartItem) {
+      if (cartItem) {
         await dispatch(
           updateCartItemById({
             id: cartItem.id,
