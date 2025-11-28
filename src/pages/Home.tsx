@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -13,7 +13,6 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/store";
 import { SortOptions } from "../types/sortOptions";
 
-
 const EMPTY_SKELETONS = [...new Array(4)];
 const PAGE_LIMIT = 4;
 
@@ -24,17 +23,17 @@ export default function Home() {
   const { updateSearchParams, searchParams, categoryId, currentPage } =
     useFilter();
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = useCallback((id: number) => {
     updateSearchParams({ categoryId: id, page: 1, search: "" });
-  };
+  }, []);
 
-  const onChangePage = (pageNumber: number) => {
+  const onChangePage = useCallback((pageNumber: number) => {
     updateSearchParams({ page: pageNumber });
-  };
+  }, []);
 
-  const onChangeSort = (sortObj: SortOptions) => {
+  const onChangeSort = useCallback((sortObj: SortOptions) => {
     updateSearchParams({ sortProperty: sortObj.sortProperty, page: 1 });
-  };
+  }, []);
 
   React.useEffect(() => {
     const getPizzas = () => {
