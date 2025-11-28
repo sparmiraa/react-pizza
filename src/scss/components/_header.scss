@@ -4,14 +4,19 @@
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
 
+
   .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__logo {
     display: flex;
+
+    &-link {
+      flex-grow: 1;
+    }
 
     img {
       margin-right: 15px;
@@ -28,5 +33,24 @@
     p {
       color: #7b7b7b;
     }
+    @media (max-width: 645px) {
+      div {
+        display: none;
+      }
+
+      img {
+        margin: 0;
+      }
+    }
+  }
+
+  &__cart {
+    & > .button {
+      flex-grow: 1;
+    }
+  }
+
+  @media (max-width: 645px) {
+    padding: 25px 0;
   }
 }

@@ -1,4 +1,5 @@
-@import '../variables';
+@use "sass:color";
+@import "../variables";
 
 .button {
   display: inline-block;
@@ -25,11 +26,11 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: color.scale($orange, $lightness: -8%);
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: color.scale($orange, $lightness: -12%);
     transform: translateY(1px);
   }
 
@@ -49,13 +50,14 @@
 
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: color.scale($black, $lightness: 10%);
     }
   }
 
   &--outline {
     background-color: #fff;
     border-color: $orange;
+
     &,
     span {
       color: $orange;
@@ -83,7 +85,30 @@
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: color.scale($orange, $lightness: -8%);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+      border-color: #ccc;
+      background-color: #f9f9f9;
+
+      &,
+      span {
+        color: #999;
+      }
+
+      svg {
+        path {
+          fill: #999;
+        }
+      }
+
+      &:hover,
+      &:active {
+        background-color: #f9f9f9;
+      }
     }
   }
 
@@ -96,8 +121,22 @@
   }
 
   &--add {
+    display: flex;
+    align-items: center;
+
+    &:disabled {
+      i {
+        background-color: #e9e9e9;
+        color: #000000;
+      }
+    }
+
     svg {
       margin-right: 2px;
+    }
+
+    img {
+      fill: black;
     }
 
     span {
@@ -113,13 +152,15 @@
     }
 
     i {
-      display: inline-block;
-      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
       background-color: $orange;
       color: #fff;
       font-weight: 600;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       font-style: normal;
       font-size: 13px;
       line-height: 22px;

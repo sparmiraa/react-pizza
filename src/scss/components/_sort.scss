@@ -1,10 +1,12 @@
-@import '../variables';
+@import "../variables";
 
 .sort {
   position: relative;
+
   &__label {
     display: flex;
     align-items: center;
+    text-wrap: nowrap;
 
     svg {
       margin-right: 8px;
@@ -24,13 +26,13 @@
   &__popup {
     position: absolute;
     right: 0;
-    margin-top: 15px;
+    margin-top: 25px;
     background: #ffffff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    box-shadow: 1px 8px 11px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
+    z-index: 10;
 
     ul {
       overflow: hidden;
