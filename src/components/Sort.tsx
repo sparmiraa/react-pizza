@@ -9,7 +9,7 @@ type SortProps = {
   onChangeSort: (sort: SortOptions) => void;
 };
 
-export default function Sort({ onChangeSort }: SortProps) {
+export default React.memo(function Sort({ onChangeSort }: SortProps) {
   const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
   const sortRef = React.useRef<HTMLDivElement>(null);
@@ -59,4 +59,4 @@ export default function Sort({ onChangeSort }: SortProps) {
       )}
     </div>
   );
-}
+});

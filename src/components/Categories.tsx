@@ -1,3 +1,5 @@
+import React from "react";
+
 type CategoriesProps = {
   value: number;
   onChangeCategory: (index: number) => void;
@@ -12,7 +14,7 @@ const CATEGORIES = [
   "Закрытые",
 ];
 
-export default function Categories({
+export default React.memo(function Categories({
   value,
   onChangeCategory,
 }: CategoriesProps) {
@@ -31,4 +33,4 @@ export default function Categories({
       </ul>
     </div>
   );
-}
+});
