@@ -9,9 +9,11 @@ import { toast } from "react-toastify";
 import PlusIcon from "../icons/PlusIcon";
 import StarIcon from "../icons/StarIcon";
 import { Link } from "react-router-dom";
-import { RootState, useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 import { CartItemType } from "../../types/cartItemType";
 import { TYPE_NAMES } from "../../constants/pizzaTypes";
+import { selectUser } from "../../redux/user/userSelectors";
+import { useAuthModal } from "../../context/AuthModalContext";
 
 const MessageTemplate = ({ title, size }: MessageTemplateProps) => (
   <>
@@ -52,6 +54,9 @@ export default function PizzaBlock({
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
 
+  const user = useAppSelector(selectUser);
+  const { open } = useAuthModal();
+
   const cartItem = useSelector((state: RootState) =>
     selectCartItem(state, {
       id: Number(id),
@@ -62,6 +67,11 @@ export default function PizzaBlock({
 
   const addedCount = cartItem?.count ?? 0;
   const onClickAdd = async () => {
+    if (!user) {
+      open("login");
+      return;
+    }
+
     setIsLoading(true);
     const item: CartItemType = {
       id,
@@ -150,7 +160,8 @@ export default function PizzaBlock({
             <span style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}>
               Добавить
             </span>
-            {addedCount > 0 && <i>{addedCount}</i>}
+            
+            { user && addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>

@@ -5,17 +5,20 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { AuthModalProvider } from "./context/AuthModalContext";
 
 const rootElem = document.getElementById("root");
 
 if (rootElem) {
   createRoot(rootElem).render(
     // <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <AuthModalProvider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </AuthModalProvider>
     // </StrictMode>
   );
 }

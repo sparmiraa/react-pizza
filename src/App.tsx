@@ -6,18 +6,26 @@ import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import { Routes, Route } from "react-router-dom";
 
-
+import GetMeLayout from "./layouts/GetMeLayout";
 import MainLayout from "./layouts/MainLayout";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminPanel from "./components/AdminPanel";
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="pizza/:id" element={<FullPizza />} />
-          <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<GetMeLayout />}>
+          <Route path="admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminPanel />} />
+          </Route>
+
+          <Route path="" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="pizza/:id" element={<FullPizza />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Route>
       </Routes>
 
