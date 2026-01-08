@@ -1,5 +1,8 @@
 import axios from "axios";
 
+export const api = axios.create({
+  baseURL: "https://690399efd0f10a340b250ab6.mockapi.io",
+});
 
 export const privateInstance = axios.create({
   baseURL: "http://localhost:5000/api",
@@ -22,8 +25,8 @@ privateInstance.interceptors.request.use((config) => {
 });
 
 privateInstance.interceptors.response.use(
-  (response) => response, 
-  async (error) => {      
+  (response) => response,
+  async (error) => {
     const originalRequest = error.config;
 
     if (error.response?.status === 401 && !originalRequest._retry) {
@@ -34,8 +37,7 @@ privateInstance.interceptors.response.use(
 
         localStorage.setItem("accessToken", response.data.accessToken);
 
-        originalRequest.headers.Authorization =
-          `Bearer ${response.data.accessToken}`;
+        originalRequest.headers.Authorization = `Bearer ${response.data.accessToken}`;
 
         return privateInstance(originalRequest);
       } catch (e) {

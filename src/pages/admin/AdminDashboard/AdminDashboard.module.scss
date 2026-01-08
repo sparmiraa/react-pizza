@@ -1,0 +1,42 @@
+.tableWrapper {
+  flex: 1;
+  height: calc(100vh - 80px);
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 400px;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+.adminError {
+  padding: 20px;
+  font-weight: 600;
+  color: #c0392b;
+}
+
+.pizzaImg {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.pizzaImg:hover {
+  transform: scale(1.1);
+}

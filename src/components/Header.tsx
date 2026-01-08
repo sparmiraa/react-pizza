@@ -15,7 +15,7 @@ export default function Header() {
   const { items, totalPrice } = useSelector(selectCart);
   const location = useLocation();
 
-  const { isOpen, open } = useAuthModal();
+  const { isOpen, openAuthModal } = useAuthModal();
 
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0);
 
@@ -47,7 +47,7 @@ export default function Header() {
                 <span>{totalCount}</span>
               </Link>
             ) : (
-              <button className="button" onClick={() => open("login")}>
+              <button className="button" onClick={openAuthModal}>
                 Войти
               </button>
             ))}
