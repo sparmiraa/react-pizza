@@ -8,8 +8,8 @@ import { Routes, Route } from "react-router-dom";
 
 import GetMeLayout from "./layouts/GetMeLayout";
 import MainLayout from "./layouts/MainLayout";
-import AdminLayout from "./layouts/AdminLayout";
-import AdminPanel from "./components/AdminPanel";
+import AdminLayout from "./layouts/AdminLayout/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard/AdminDashboard";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<GetMeLayout />}>
           <Route path="admin" element={<AdminLayout />}>
-            <Route path="dashboard" element={<AdminPanel />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
           </Route>
 
           <Route path="" element={<MainLayout />}>
