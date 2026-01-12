@@ -1,21 +1,21 @@
 .fullLoader {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    height: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100dvh - 56px - 51px);
+}
+
+.loader {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(0, 0, 0, 0.25);
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .loader {
-    width: 22px;
-    height: 22px;
-    border: 3px solid rgba(0, 0, 0, 0.25);
-    border-top: 3px solid #000;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}

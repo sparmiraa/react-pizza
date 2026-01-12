@@ -1,5 +1,5 @@
-import { api } from "./axios";
-import { Pizza } from "../pages/admin/AdminDashboard/AdminPizzaTypes";
+import { api } from "../axios";
+import { Pizza } from "../../pages/admin/AdminDashboard/AdminPizzaTypes";
 
 export const AdminPizzaService = {
   async getAll() {

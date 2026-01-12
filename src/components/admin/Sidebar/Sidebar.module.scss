@@ -9,11 +9,10 @@
     width 0.25s ease,
     padding 0.25s ease;
   border-right: 1px solid #e4e7eb;
-}
 
-.collapsed {
-  width: 72px;
-  padding: 20px 12px;
+  &.collapsed {
+    width: 87px;
+  }
 }
 
 .sidebarHeader {
@@ -24,16 +23,24 @@
 
 .sidebarTitle {
   font-size: 22px;
+  width: 100%;
   font-weight: 800;
   color: #444;
   white-space: nowrap;
+  transition: all 0.2s;
+
+  &.collapsed {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
 }
 
 .collapseBtn {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 6px;
+  padding: 12px 14px;
   border-radius: 6px;
   color: #555;
   transition: 0.2s;
@@ -81,15 +88,14 @@
   justify-content: center;
 }
 
-.collapsed .sidebarTitle {
-  display: none;
+.label {
+  display: inline-block;
+  width: 100%;
 }
 
-.collapsed .navItem {
-  justify-content: center;
-  padding: 12px;
-}
-
-.collapsed .navItem span:not(.icon) {
-  display: none;
+.label.collapsed {
+  transition: all 0.2s;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
 }

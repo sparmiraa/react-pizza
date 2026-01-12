@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Pizza } from "./AdminPizzaTypes";
-import { AdminPizzaService } from "../../../api/adminPizzaService";
-
+import { AdminPizzaService } from "../../../api/services/adminPizzaService";
 
 export function useAdminPizzas() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);

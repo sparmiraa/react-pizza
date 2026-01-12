@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader";
 
 import hidden from "../../assets/img/hidden.png";
 import visible from "../../assets/img/visible.png";
-import { AuthService } from "../../api/authService";
+import { AuthService } from "../../api/services/authService/authService";
 import { getMeThunk } from "../../redux/user/userThunks";
 import { parseApiError } from "../../api/parseApiError";
 import FormInput from "../FormInput/FormInput";

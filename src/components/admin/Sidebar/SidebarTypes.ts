@@ -1,4 +1,4 @@
 export type SidebarProps = {
-    collapsed: boolean;
-    onToggle: () => void;
-  };
+  isCollapsed: boolean;
+  onToggle: () => void;
+};

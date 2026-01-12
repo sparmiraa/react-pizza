@@ -1,17 +1,11 @@
 .wrapperAdmin {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
-  background: white;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .adminContent {
   flex: 1;
-  padding: 24px;
   height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-

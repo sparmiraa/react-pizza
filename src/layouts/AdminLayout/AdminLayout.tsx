@@ -26,7 +26,7 @@ export default function AdminLayout() {
   return (
     <div className={styles.wrapperAdmin}>
       <Sidebar
-        collapsed={collapsed}
+        isCollapsed={collapsed}
         onToggle={() => setCollapsed((prev) => !prev)}
       />
 
