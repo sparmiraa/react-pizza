@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<GetMeLayout />}>
+        <Route path="" element={<GetMeLayout />}>
           <Route path="admin" element={<AdminLayout />}>
             <Route path="dashboard" element={<AdminDashboard />} />
           </Route>
