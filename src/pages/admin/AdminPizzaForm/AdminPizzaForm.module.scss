@@ -1,0 +1,74 @@
+.form {
+  max-width: 100%;
+  padding: 32px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;  
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 24px;
+  margin: -32px -24px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stickyHeader h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stickyHeader button {
+  padding: 10px 18px;
+  background: #ff7010;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stickyHeader button:hover {
+  background: #ff5a00;
+}
+
+.preview {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 6px;
+}
+
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.checkboxGroup input {
+  width: 16px;
+  height: 16px;
+  accent-color: #fc7d28;
+}
+

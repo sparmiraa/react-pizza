@@ -6,7 +6,7 @@ import {
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
 import RemoveIcon from "./icons/RemoveIcon";
-import { TYPE_NAMES } from "../constants/pizzaTypes";
+import { TYPE_NAMES } from "../constants/pizzaConstants";
 
 type CartItemProps = {
   id: string;
@@ -51,7 +51,7 @@ export default function CartItem({
       <div className="cart__item-info">
         <h3>{title}</h3>
         <p>
-        {TYPE_NAMES[type]} тесто, {size} см.
+          {TYPE_NAMES[type]} тесто, {size} см.
         </p>
         <p>{price} ₽</p>
       </div>

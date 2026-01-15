@@ -5,7 +5,7 @@ type CategoriesProps = {
   onChangeCategory: (index: number) => void;
 };
 
-const CATEGORIES = [
+export const CATEGORIES = [
   "Все",
   "Мясные",
   "Вегетарианская",
@@ -13,7 +13,7 @@ const CATEGORIES = [
   "Острые",
   "Закрытые",
 ];
-
+            
 export default React.memo(function Categories({
   value,
   onChangeCategory,

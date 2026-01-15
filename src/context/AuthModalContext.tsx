@@ -8,17 +8,20 @@ export function AuthModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState<AuthMode>("login");
 
-  const open = (mode: AuthMode) => {
-    setMode(mode);
+  const openAuthModal = () => {
     setIsOpen(true);
   };
 
-  const close = () => {
+  const closeAuthModal = () => {
     setIsOpen(false);
   };
 
+  const switchAuthMode = () => {
+    setMode((prevMode) => (prevMode === "login" ? "register" : "login"));
+  };
+
   return (
-    <AuthModalContext.Provider value={{ isOpen, mode, open, close }}>
+    <AuthModalContext.Provider value={{ isOpen, mode, openAuthModal, closeAuthModal, switchAuthMode }}>
       {children}
     </AuthModalContext.Provider>
   );

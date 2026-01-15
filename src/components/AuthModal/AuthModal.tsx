@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader";
 
 import hidden from "../../assets/img/hidden.png";
 import visible from "../../assets/img/visible.png";
-import { AuthService } from "../../api/authService";
+import { AuthService } from "../../api/services/authService/authService";
 import { getMeThunk } from "../../redux/user/userThunks";
 import { parseApiError } from "../../api/parseApiError";
 import FormInput from "../FormInput/FormInput";
@@ -16,7 +16,7 @@ import { useAuthModal } from "../../context/AuthModalContext";
 export default function AuthModal() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
-  const { mode, close, open } = useAuthModal();
+  const { mode, closeAuthModal, switchAuthMode } = useAuthModal();
   const auth = useAuthMode(mode);
 
   const [firstName, setFirstName] = useState("");
@@ -39,8 +39,8 @@ export default function AuthModal() {
   }, [mode]);
 
   useEffect(() => {
-    if (user) close();
-  }, [user, close]);
+    if (user) closeAuthModal();
+  }, [user]);
 
   const handleSubmit = async () => {
     try {
@@ -67,9 +67,12 @@ export default function AuthModal() {
   };
 
   return (
-    <div className={styles.overlay} onClick={close}>
-      <div className={styles.registerCard} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.close} onClick={close}>
+    <div className={styles.overlay} onMouseDown={closeAuthModal}>
+      <div
+        className={styles.registerCard}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
+        <button className={styles.close} onClick={closeAuthModal}>
           ✕
         </button>
 
@@ -132,7 +135,7 @@ export default function AuthModal() {
 
         <p className={styles.terms}>
           {auth.switchLabel}{" "}
-          <span onClick={() => open(auth.switchMode)}>{auth.switchText}</span>
+          <span onClick={switchAuthMode}>{auth.switchText}</span>
         </p>
       </div>
     </div>

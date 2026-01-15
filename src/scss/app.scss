@@ -8,17 +8,9 @@ body {
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
   height: 100%;
-  background-color: #fff;
   margin: 50px auto;
-  border-radius: 10px;
   max-width: 1400px;
-
-  @media (max-width: 645px) {
-    width: calc(100vw - 30px);
-    margin-top: 15px;
-  }
 }
 
 .content {
@@ -393,3 +385,4 @@ body {
     opacity: 0.8;
   }
 }
+

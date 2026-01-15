@@ -1,5 +1,5 @@
-import { UserProfile } from "../redux/user/userTypes";
-import { privateInstance } from "./axios";
+import { UserProfile } from "../../redux/user/userTypes";
+import { privateInstance } from "../axios";
 
 export const UserService = {
   getMe() {

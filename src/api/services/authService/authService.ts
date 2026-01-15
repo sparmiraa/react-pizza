@@ -1,5 +1,5 @@
 import { AuthLoginDto, AuthRegisterDto, AuthResponseDto } from "./authTypes";
-import { publicInstance } from "./axios";
+import { publicInstance } from "../../axios";
 
 export const AuthService = {
   login(dto: AuthLoginDto) {
